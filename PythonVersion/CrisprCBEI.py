@@ -238,14 +238,14 @@ def calSapcer(seq, regPos, pam, spLen, editWin, direct, endReg, mode):
 
 
 ########Some info##########
-pam="NNGRRT"
-spLen=20
-editWin=[4,8]
-direct=5
-# pam = sys.argv[2]
-# spLen = int(sys.argv[3])
-# editWin = [int(sys.argv[4]), int(sys.argv[5])]
-# direct = int(sys.argv[6])
+# pam="NGG"
+# spLen=20
+# editWin=[4,8]
+# direct=5
+pam = sys.argv[2]
+spLen = int(sys.argv[3])
+editWin = [int(sys.argv[4]), int(sys.argv[5])]
+direct = int(sys.argv[6])
 ###########################
 
 pamReg = getPAMReg(pam)
@@ -253,8 +253,8 @@ pamReg = getPAMReg(pam)
 endReg = re.compile(r'cag|caa|cga', re.I)
 endRegM = re.compile(r'cca', re.I)
 
-seqDict = SeqIO.index("lac.fa", "fasta")
-# seqDict = SeqIO.index(sys.argv[1], "fasta")
+# seqDict = SeqIO.index("lac.fa", "fasta")
+seqDict = SeqIO.index(sys.argv[1], "fasta")
 
 for key in seqDict.keys():
     seq = str(seqDict[key].seq)
