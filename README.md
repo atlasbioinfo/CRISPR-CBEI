@@ -17,7 +17,7 @@ The online version can access from (https://taolab.nwsuaf.edu.cn/CrisprCBEI/),
 
 The offline version is divided into the local server version and the HTML version.
 
-CrisprCBEI is pure front-end software, so we first introduced the HTML version, which can run the software in a browser by merely opening an HTML file. However, due to browser security, the HTML version only works in a few browsers (currently available in tests with Firefox and Microsoft Edge browsers).So we launched the local server version at the same time.This version can build a local server with a simple command to run in any HTML5 enabled browser (currently all the major browsers).
+CrisprCBEI is pure front-end software, so we first introduced the HTML version, which can run the software in a browser by merely opening an HTML file. However, due to browser security settings, the HTML version only works in a few browsers (currently available in tests with Firefox and Microsoft Edge browsers).So we launched the local server version at the same time.This version can build a local server with a simple command to run in any HTML5 enabled browser (currently all the major browsers).
 
 ## CrisprCBEI.py version
 For the Python version, CrisprCBEI.py is more efficient and can compute large amounts of data. This python version only allows CBEI predictions.The next off-target prediction can be made using the existing tools.
