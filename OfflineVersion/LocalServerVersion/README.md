@@ -9,7 +9,7 @@ Of course, you can use CrisprCBEI directly through our website (https://taolab.n
 
 ## Flow chart
 
-![CBEIflowcharts](./Image/CBEIflowcharts.png)
+![CBEIflowcharts](./Image/Figure1.png)
 
 The main functions of the software can be divided into CBEI prediction and off-target prediction, which can be seamlessly connected in actual operation. It is worth noting that our off-target prediction runs locally and does not limit genome file size.
 

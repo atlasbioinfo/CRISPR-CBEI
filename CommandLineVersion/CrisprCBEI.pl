@@ -1,4 +1,12 @@
 use strict;use warnings;
+###########Setting############
+#$ARGV[0]: CDS file
+my $pam=$ARGV[1];#PAM: NGG
+my $spacer=$ARGV[2];#Spacer length: 20
+my $ebeg=$ARGV[3];#Edit windows begin: 4
+my $eend=$ARGV[4];#Edit windows end: 8
+my $dire=$ARGV[5];#Direction: 5 or 3
+#############################
 our %baseT = (
     "A"=> "T",
     "T"=> "A",
@@ -36,15 +44,10 @@ our %baseT = (
 
 open F,"$ARGV[0]";
 my $count=0;
-my $pam="NGG";
 $pam=~s/\s|\r|\t|\n//g;
 my $pamr=&tranStrand($pam);
 my $reg=&getPAMreg($pam);
 my $regr=&getPAMreg($pamr);
-my $spacer=20;
-my $ebeg=4;
-my $eend=8;
-my $dire=3;
 {
 	local $/=">";
 	while (<F>){
@@ -71,10 +74,12 @@ my $dire=3;
 						next if $tb+$ttpos-1>length($seq);
 						print "$title[0]\tPlus\t";#Fasta title
 						print substr($seq,$tb+$ttpos-length($pam)-$spacer,$spacer),"\t";
-						print $tb+$ttpos-length($pam)-$spacer+1,"-",$tb+$ttpos-length($pam),"\t";
+						my $tspbeg=$tb+$ttpos-length($pam)-$spacer+1;
+						print "$tspbeg-",$tb+$ttpos-length($pam),"\t";
 						print substr($seq,$tb+$ttpos-length($pam),length($pam)),"\t"; #PAM seq
 						print $tb+1+$ttpos-length($pam),"-",$tb+$ttpos,"\t"; #PAM pos
-						print "\n";
+						my $tttpos=($tspbeg+($ebeg+$eend)/2-1)/length($seq);
+						print $tttpos,"\n";
 					}
 				}else{
 					my $tb=$tpos-$eend-length($pam)+1;
@@ -89,7 +94,9 @@ my $dire=3;
 						print &tranStrand(substr($seq,$tb+$ttpos,$spacer)),"\t";
 						print $tb+$ttpos+1,"-",$tb+$ttpos+$spacer,"\t";
 						print substr($seq,$tb+$ttpos-length($pam),length($pam)),"\t"; #PAM seq
-						print $tb+$ttpos-length($pam)+1,"-",$tb+$ttpos,"\n"; #PAM pos
+						print $tb+$ttpos-length($pam)+1,"-",$tb+$ttpos,"\t"; #PAM pos
+						my $tttpos=($tb+$ttpos+($ebeg+$eend)/2)/length($seq);
+						print "$tttpos\n";
 					}
 					
 				}
@@ -107,7 +114,9 @@ my $dire=3;
 						print &tranStrand(substr($seq,$tb+$ttpos,$spacer)),"\t";
 						print $tb+$ttpos+1,"-",$tb+$ttpos+$spacer,"\t";
 						print &tranStrand(substr($seq,$tb+$ttpos-length($pam),length($pam))),"\t"; #PAM seq
-						print $tb+$ttpos-length($pam)+1,"-",$tb+$ttpos,"\n"; #PAM pos
+						print $tb+$ttpos-length($pam)+1,"-",$tb+$ttpos,"\t"; #PAM pos
+						my $tttpos= ($tb+$ttpos+($ebeg+$eend)/2)/length($seq);
+						print $tttpos,"\n";
 					}
 				}else{
 					my $tb=$tpos+$ebeg+1;
@@ -122,7 +131,8 @@ my $dire=3;
 						print $tb+$ttpos-length($pam)-$spacer+1,"-",$tb+$ttpos-length($pam),"\t";
 						print &tranStrand(substr($seq,$tb+$ttpos-length($pam),length($pam))),"\t"; #PAM seq
 						print $tb+1+$ttpos-length($pam),"-",$tb+$ttpos,"\t"; #PAM pos
-						print "\n";
+						my $tttpos=($tb+$ttpos-length($pam)-$spacer+($ebeg+$eend)/2)/length($seq);
+						print "$tttpos\n";
 					}
 					
 				}
