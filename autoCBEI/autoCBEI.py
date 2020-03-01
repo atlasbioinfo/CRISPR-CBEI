@@ -60,7 +60,7 @@ tName=os.path.basename(sys.argv[1]).split(".")
 fileName=tName[0]
 for key in beinfos:
     print("Start calculating: "+key)
-    #cbei.runBatch(key, beinfos[key], seqDict,rawPath)
+    cbei.runBatch(key, beinfos[key], seqDict,rawPath)
 print("Calculate complete!")
 print("Begin statistics...")
 stat.statCBEI(seqDict,rawPath,plotPath,resPath,fileName)
