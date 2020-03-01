@@ -4,7 +4,7 @@ import numpy as np
 from Bio.SeqUtils import GC
 from cycler import cycler
 
-def statCBEI(seqDict,cbeiPath,plotPath,statPath):
+def statCBEI(seqDict,cbeiPath,plotPath,statPath,fileName):
     transNum=len(seqDict)
     if (not os.path.exists(plotPath)):
         os.mkdir(plotPath)
@@ -14,12 +14,10 @@ def statCBEI(seqDict,cbeiPath,plotPath,statPath):
 
     files=os.listdir(cbeiPath)
     allRaio={}
-    fileName=""
     for cfile in files:
-        if(cfile[-5:]==".cbei"):
+        if(re.match(r'.*'+fileName+'.*\.cbei$',cfile,re.I)):
             tmp=cfile.split(".")
             be=tmp[0].split("_")[0]
-            fileName="_".join(tmp[0].split("_")[1:])
             filePath=os.path.join(cbeiPath,cfile)
             cbeiInfo=getInfo(be,fileName,filePath,statPath)
             allRaio[be]=[len(cbeiInfo["t25"])/transNum,len(cbeiInfo["t5"])/transNum,len(cbeiInfo["t75"])/transNum,]        
