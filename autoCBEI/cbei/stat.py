@@ -1,5 +1,6 @@
 import os,re,random
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import numpy as np
 from Bio.SeqUtils import GC
 from cycler import cycler
@@ -63,6 +64,9 @@ def begROC(transNum, cbeiPath, plotPath,fileName):
                     beName[title[0]][p]+=1
     statROC(beName,plotPath,fileName,transNum)
 
+def to_percent(value, pos):
+    return '%1.0f'%(100*value) + '%'
+
 def statROC(beName,plotPath,fileName,transNum):
     nxarr= [[ 0 for j in range(0,100)]for i in beName.keys()]
     nyarr= [[ 0 for j in range(0,100)]for i in beName.keys()]
@@ -85,6 +89,8 @@ def statROC(beName,plotPath,fileName,transNum):
     ax.legend()
     ax.set_xlabel("Threshold")
     ax.set_ylabel("CBEI ratio")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
+    plt.gca().xaxis.set_major_formatter(FuncFormatter(to_percent))
     plt.savefig(os.path.join(plotPath,fileName+".statROC.tiff"),dpi=300)
     plt.clf()
     
@@ -105,28 +111,30 @@ def statAllRatio(ratio,plotPath,fileName):
         thre75.append(ratio[key][2])
 
     ax2[0].bar(xlab, thre25)
-    ax2[0].set(title="Thred=25%")
+    ax2[0].set(title="Threshold=25%")
     ax2[0].set_xticklabels(xlab,rotation=45)
     autolabel(ax2[0],xlab,thre25)
-    ax2[0].set_ylabel("Editable transcript ratio")
+    ax2[0].set_ylabel("CBEI ratio")
     ax2[1].bar(xlab, thre5)
     ax2[1].set_xticklabels(xlab,rotation=45)
-    ax2[1].set_ylabel("Editable transcript ratio")
+    ax2[1].set_ylabel("CBEI ratio")
     autolabel(ax2[1],xlab,thre5)
-    ax2[1].set(title="Thred=50%")
+    ax2[1].set(title="Threshold=50%")
     ax2[2].bar(xlab, thre75)
     autolabel(ax2[2],xlab,thre75)
     ax2[2].set_xticklabels(xlab,rotation=45)
-    ax2[2].set_ylabel("Editable transcript ratio")
-    ax2[2].set(title="Thred=75%")
-    # plt.suptitle("Editable transcripts ratio of "+fileName)
+    ax2[2].set_ylabel("CBEI ratio")
+    ax2[2].set(title="Threshold=75%")
+    ax2[0].get_yaxis().set_major_formatter(FuncFormatter(to_percent))
+    ax2[1].get_yaxis().set_major_formatter(FuncFormatter(to_percent))
+    ax2[2].get_yaxis().set_major_formatter(FuncFormatter(to_percent))
     plt.tight_layout()
     plt.savefig(os.path.join(plotPath,fileName+".statBar.tiff"),dpi=300)
     plt.clf() 
 
 def autolabel(plt,x,y):
     for xx, yy in zip(x,y):
-        plt.text(xx, yy+0.01, "%.2f" % yy, ha='center')
+        plt.text(xx, yy+0.01, "%1.2f" % (yy*100)+"%", ha='center')
 
 def func(pct, allvals):
     absolute = int(pct/100.*np.sum(allvals))
