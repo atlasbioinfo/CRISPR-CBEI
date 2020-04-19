@@ -103,8 +103,12 @@ def addLabel(seq, addPos, addStr, reg):
     return newSeq
 
 
-def calSapcer(seq, regPos, pam, spLen, editWin, direct, endReg, mode):
+def calSapcer(seq, regPos, beinfo, endReg, mode):
     preStop = []
+    pam=beinfo[0]
+    spLen=beinfo[1]
+    editWin=beinfo[2:4]
+    direct=beinfo[4]
     for tpos in regPos:
         pamInfo = {}
         pamInfo['mode'] = mode
@@ -171,13 +175,24 @@ def calSapcer(seq, regPos, pam, spLen, editWin, direct, endReg, mode):
         tios = []
         for ttedit in tedit:
             teditCodonIndex = int((ttedit-longspb)/3)
+            newCodon=""
             for subI in range(3):
                 ttIndex = subI+ttedit
                 if (ttIndex >= b and ttIndex <= e):
                     if (re.match(r'C', tcodonORI[teditCodonIndex][subI], re.I)):
+                        # if (mode == 'Minus'):
+                        #     print(tcodonORI[teditCodonIndex]+"\t"+tcodonORI[teditCodonIndex][subI]+"\t"+str(subI))
                         tios.append(ttIndex)
-                        tcodonall[teditCodonIndex] = changeCodon(
-                            tcodonORI[teditCodonIndex], subI+1, "(c->t)")
+                        newCodon=newCodon+"(c->t)"
+                        # tcodonORI[teditCodonIndex][subI]="(c->t)"
+                        # tcodonall[teditCodonIndex] = changeCodon(
+                        #     tcodonORI[teditCodonIndex], subI+1, "(c->t)")
+                    else:
+                        newCodon=newCodon+tcodonORI[teditCodonIndex][subI]
+                else:
+                    newCodon=newCodon+tcodonORI[teditCodonIndex][subI]
+            tcodonall[teditCodonIndex]=newCodon
+
         if (not tios):
             continue
 
@@ -205,17 +220,17 @@ def calSapcer(seq, regPos, pam, spLen, editWin, direct, endReg, mode):
 
         detailSeq = ",".join(tcodonall)
 
-        skipReg = re.compile(r'\{|\}\[|\]|\)|\-|\>|[c,t]')
+        skipReg = re.compile(r',|\{|\}|\[|\]|\)|\-|\>|[c,t]')
 
         detailSeq = addLabel(detailSeq, abs(
             longspb-spb)+editWin[0]-1, '[', skipReg)
         detailSeq = addLabel(detailSeq, abs(
-            longspb-spb)+editWin[1]+1, ']', skipReg)
+            longspb-spb)+editWin[1], ']', skipReg)
 
         if (direct == 5):
             detailSeq = addLabel(detailSeq, abs(longspb-spb), '{', skipReg)
             detailSeq = addLabel(detailSeq, len(
-                longSpacer)-abs(longspe-spe)+1, '}|', skipReg)
+                longSpacer)-abs(longspe-spe), '}|', skipReg)
             detailSeq = detailSeq+',' + \
                 seq[longspe:longspe+len(pam)-(abs(longspe-spe))]
         else:
@@ -224,7 +239,7 @@ def calSapcer(seq, regPos, pam, spLen, editWin, direct, endReg, mode):
                 longSpacer)-abs(longspe-spe)+2, '}', skipReg)
             detailSeq = seq[longspb -
                             len(pam)+abs(longspb-spb)-1:longspb-1]+","+detailSeq
-
+        # print(detailSeq.upper())
         pamInfo['detailSpacer'] = detailSeq.upper()
 
         pamInfo['editpos'] = editPos
@@ -246,8 +261,8 @@ def runBatch(bename, beinfo, seqDict,rawPath):
         seqr = tranStrand(seq)
         pos = pamReg.finditer(seq)
         posR = pamReg.finditer(seqr)
-        plusRes = calSapcer(seq, pos, beinfo[0], beinfo[1], beinfo[2:4], beinfo[4], endReg, 'Plus')
-        minusRes = calSapcer(seqr, posR, beinfo[0], beinfo[1], beinfo[2:4], beinfo[4], endRegM, 'Minus')
+        plusRes = calSapcer(seq, pos, beinfo, endReg, 'Plus')
+        minusRes = calSapcer(seqr, posR, beinfo, endRegM, 'Minus')
         plusRes.extend(minusRes)
         plusRes = sorted(plusRes, key=(lambda x: x['location']))
         for tres in plusRes:

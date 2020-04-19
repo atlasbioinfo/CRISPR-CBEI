@@ -3,7 +3,7 @@ import argparse
 
 #Set the Base editor parameter
 # [PAM, spacer length, edit beg, edit end, direction]
-# Direction refers to spacer at the 5' or 3' end of PAM sequence (5 or 3, respectively).
+# Direction refers to spacer at the 5' or 3' end of PAM sequence (5 or 3, respectively). 
 beinfos = {
     "BE":["NGG",20,4,8,5],
     "YE1-BE3":["NGG",20,5,7,5],
