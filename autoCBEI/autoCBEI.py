@@ -20,9 +20,19 @@ beinfos = {
     "BE-PLUS":["NGG",20,4,14,5]
 }
 
-rawPath="./CBEIRaw"
-plotPath="./CBEIPlot"
-resPath="./CBEIRes"
+try:
+    from Bio import SeqIO
+except ImportError:
+    print("Error:\n\tThe \"biopython\" package was not found.\n\tPlease install \"biopython\".")
+    print("autoCBEI.py exit...")
+    sys.exit()
+
+try:
+    import matplotlib
+except ImportError:
+    print("Error:\n\t The \"matplotlib\" package was not found.\n\tPlease install \"matplotlib\".")
+    print("autoCBEI.py exit...")
+    sys.exit()
 
 try:
     from cbei import cbei,stat
@@ -31,22 +41,28 @@ except ImportError:
     print("autoCBEI.py exit...")
     sys.exit()
 
-try:
-    from Bio import SeqIO
-except ImportError:
-    print("Error:\n\tThe \"biopython\" package was not found.\n\tPlease install \"biopython\" using \"pip install biopython\"")
-    print("autoCBEI.py exit...")
-    sys.exit()
-
 parser = argparse.ArgumentParser(description='Enter fasta file of transcripts,\
-        output base editor\'s potential editing site and statistics information.')
-parser.add_argument("trans",help="Transcripts in fasta format",type=str)
+        output base editor\'s potential editing site and statistics information. ')
+parser.add_argument("trans",help="Transcripts in fasta format. Eg., ./Bacillus_subtilis.ASM69118v1.cds.all.fa",type=str)
+# parser.add_argument("-t","--threshold",help="Range:[0,1].Set a threshold to filter the CBEI prediction results.For example, 0.5 is the CBEI sites of selection only the upstram 50% of the gene.",action="store_true")
+parser.add_argument("-ns","--nostat",help="Only run CBEI design without statistics and plot.",action="store_true")
+parser.add_argument("-nc","--nocalculate",help="Only run CBEI statistics without CBEI design.",action="store_true")
+parser.add_argument("-o","--outprefix",help="Directory prefixes can be customized. Default: \"CBEI\" (CBEIRaw, CBEIPlot, CBEIRes). ", type=str)
 args = parser.parse_args()
 
 # 1. The potential editing sites for the base editor are calculated, 
 #     and each base editor generates a separate cbei file.
 
-print("Input file: "+sys.argv[1])
+pre="CBEI"
+if (args.outprefix):
+    pre=args.outprefix
+
+rawPath=pre+"Raw"
+plotPath=pre+"Plot"
+resPath=pre+"Stat"
+
+print("Input file: "+args.trans)
+print("Output directory: "+rawPath)
 print("Base editors: ")
 print("\tBE\tPAM\tSpacer\tEditBegin\tEditEnd\tDirection")
 for key in beinfos.keys():
@@ -55,13 +71,19 @@ for key in beinfos.keys():
         print(t,end="\t")
     print()
 
-seqDict = SeqIO.index(sys.argv[1], "fasta")
-tName=os.path.basename(sys.argv[1]).split(".")
+seqDict = SeqIO.index(args.trans, "fasta")
+tName=os.path.basename(args.trans).split(".")
 fileName=tName[0]
-for key in beinfos:
-    print("Start calculating: "+key)
-    cbei.runBatch(key, beinfos[key], seqDict,rawPath)
-print("Calculate complete!")
-print("Begin statistics...")
-stat.statCBEI(seqDict,rawPath,plotPath,resPath,fileName)
-print("CBEI statistics complete")
+if (not args.nocalculate):
+    for key in beinfos:
+        print("Start calculating: "+key)
+        cbei.runBatch(key, beinfos[key], seqDict,rawPath)
+    print("Calculate complete!")
+
+if (not args.nostat):
+    print("Begin statistics...")
+    print("The statistics directory: "+resPath)
+    print("The plot directory: "+plotPath)
+
+    stat.statCBEI(seqDict,rawPath,plotPath,resPath,fileName)
+    print("CBEI statistics complete")
