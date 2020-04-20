@@ -6,6 +6,32 @@ We developed the 'autoCBEI' to automate the calculation of potential CBEI loci o
 
 ## 1. Install
 
+### 1.1 Install by conda
+
+Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings. We therefore recommend the installation of antoCBEI by conda.
+
+First install the corresponding platform of [Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).We recommend installing python version 3.7.
+
+Next execute the following command:
+```bash
+        # Download CRISPR-CBEI
+        1. git clone https://github.com/atlasbioinfo/CRISPR-CBEI.git
+        # Into autoCBEI directory
+        2. cd autoCBEI
+        # Creat env and install environment
+        3. conda env create -f cbei_require.yml
+        # Activate cbei
+        4. source activate cbei
+        # Run autoCBEI
+        5. python autoCBEI.py [options] transcript.fa
+        E.g.: python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
+
+        # For more information
+        python autoCBEI.py -h
+```
+
+### 1.2 Install by pip
+
 AutoCBEI.py is based on Python scripts, and the following are the required dependencies.
 
 ```
@@ -34,9 +60,35 @@ First copy the following files locally:
 	Bacillus_subtilis.ASM69118v1.cds.all.fa
 ```
 
-Simply run the following command
-```Python
-python autoCBEI.py Bacillus_subtilis.ASM69118v1.cds.all.fa
+### 2.1 Simply run
+
+```bash
+python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
+```
+
+### 2.2 Parameters
+
+```bash
+python autoCBEI.py -h
+```
+
+```
+usage: autoCBEI.py [-h] [-ns] [-nc] [-o OUTPREFIX] trans
+
+Enter fasta file of transcripts, output base editor's potential editing site
+and statistics information.
+
+positional arguments:
+  trans                 Transcripts in fasta format. 
+                        E.g.: ./Bacillus_subtilis.part500.cds.all.fa
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -ns, --nostat         Only run CBEI design without statistics and plot.
+  -nc, --nocalculate    Only run CBEI statistics without CBEI design.
+  -o OUTPREFIX, --outprefix OUTPREFIX
+                        Directory prefixes can be customized. Default: "CBEI"
+                        (CBEIRaw, CBEIPlot, CBEIRes).
 ```
 
 
@@ -79,16 +131,18 @@ beinfos = {
 
 > **Direction**: 5 or 3. Spacer is at the 5 'end or 3' end of the PAM sequence. The example in the figure is the 5.
 
-
-
-
 ## 4 Output
 
 ### 4.1 Output message
 
-The output message should be:
+The output message of simply run 
+```bash
+python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
 ```
-Input file: .\Bacillus_subtilis.ASM69118v1.cds.all.fa
+should be:
+```
+Input file: Bacillus_subtilis.part500.cds.all.fa
+Output directory: CBEIRaw
 Base editors:
         BE      PAM     Spacer  EditBegin       EditEnd Direction
         BE      NGG     20      4       8       5
@@ -99,7 +153,7 @@ Base editors:
         VRER-BE3        NGCG    20      3       10      5
         SaBE    NNGRRT  21      3       12      5
         Sa(KKH)-BE3     NNNRRT  21      3       12      5
-        Cas12a–BE      TTTV    20      10      12      3
+        Cas12a–BE       TTTV    20      10      12      3
         Target-AID      NGG     20      2       4       5
         Target-AID-NG   NG      20      2       4       5
         xBE3    NG      20      4       8       5
@@ -132,34 +186,47 @@ Start calculating: BE-PLUS
 CBEI calculation of base editor "BE-PLUS" , done!
 Calculate complete!
 Begin statistics...
+The statistics directory: CBEIStat
+The plot directory: CBEIPlot
 ####################
 Pie charts for different BEs have been generated.
 Path:
-        ./CBEIPlot\[BE names]_Bacillus_subtilis.statPie.tiff
+        CBEIPlot/[BE names]_Bacillus_subtilis.statPie.png
 Transcript statistics and mapping completed.
 Path:
-        ./CBEIPlot/Bacillus_subtilis_CDSlength.tiff
-        ./CBEIPlot/Bacillus_subtilis_GCstats.tiff
-        ./CBEIPlot/Bacillus_subtilis_CodonUsage.tiff
-        ./CBEIPlot/Bacillus_subtilis_CDSlength.tiff
+        CBEIPlot/Bacillus_subtilis_CDSlength.png
+        CBEIPlot/Bacillus_subtilis_GCstats.png
+        CBEIPlot/Bacillus_subtilis_CodonUsage.png
+        CBEIPlot/Bacillus_subtilis_CDSlength.png
 The comparison of CBEI ratio of different BE has been completed.
 Path:
-        ./CBEIPlot/Bacillus_subtilis.statBar.tiff
-        ./CBEIPlot/Bacillus_subtilis.statROC.tiff
+        CBEIPlot/Bacillus_subtilis.statBar.png
+        CBEIPlot/Bacillus_subtilis.statROC.png
 CBEI statistics complete
 ```
 ### 4.2 Output files
 
 The output directory or files shold be:
 ```
-	CBEIRaw/
-		BE_Bacillus_subtilis.ASM69118v1.cds.all.fa.cbei
-        xxxx.cbei
-    CBEIRes/
-        BE_Bacillus_subtilis.Thre05.tsv
-        xxxx.Threxx.tsv
-    CBEIPlot/
-        xxxx.tiff
+├── CBEIPlot
+│   ├── BE-PLUS_Bacillus_subtilis.statPie.png
+│   ├── BE_Bacillus_subtilis.statPie.png
+│   ├── Bacillus_subtilis.statBar.png
+│   ├── Bacillus_subtilis.statROC.png
+│   ├── Bacillus_subtilis_CDSlength.png
+│   ├── Bacillus_subtilis_CodonUsage.png
+│   ├── Bacillus_subtilis_GCstats.png
+│   ├── ...
+├── CBEIRaw
+│   ├── BE-PLUS_Bacillus_subtilis.part500.cds.all.fa.cbei
+│   ├── BE_Bacillus_subtilis.part500.cds.all.fa.cbei
+│   ├── ...
+├── CBEIStat
+│   ├── BE-PLUS_Bacillus_subtilis.Thre025.tsv
+│   ├── BE-PLUS_Bacillus_subtilis.Thre05.tsv
+│   ├── BE-PLUS_Bacillus_subtilis.Thre075.tsv
+│   ├── ...
+
 ```
 
 #### 4.2.1 .cbei files format
