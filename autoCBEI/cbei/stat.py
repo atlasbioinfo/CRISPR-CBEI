@@ -25,19 +25,19 @@ def statCBEI(seqDict,cbeiPath,plotPath,statPath,fileName):
             editablePie(cfile,transNum,cbeiInfo["t25"],cbeiInfo["t5"],cbeiInfo["t75"],plotPath)
     print("#"*20)
     print("Pie charts for different BEs have been generated. \nPath:")
-    print("\t"+os.path.join(plotPath,"[BE names]_"+fileName+".statPie.tiff"))
+    print("\t"+os.path.join(plotPath,"[BE names]_"+fileName+".statPie.png"))
     
     transGCStat(fileName,seqDict,plotPath)
-    print("Transcript statistics and mapping completed.\nPath:\n\t"+os.path.join(plotPath,fileName+"_CDSlength.tiff"))
-    print("\t"+os.path.join(plotPath,fileName+"_GCstats.tiff"))
-    print("\t"+os.path.join(plotPath,fileName+"_CodonUsage.tiff"))
-    print("\t"+os.path.join(plotPath,fileName+"_CDSlength.tiff"))
+    print("Transcript statistics and mapping completed.\nPath:\n\t"+os.path.join(plotPath,fileName+"_CDSlength.png"))
+    print("\t"+os.path.join(plotPath,fileName+"_GCstats.png"))
+    print("\t"+os.path.join(plotPath,fileName+"_CodonUsage.png"))
+    print("\t"+os.path.join(plotPath,fileName+"_CDSlength.png"))
 
     statAllRatio(allRaio,plotPath,fileName)
     print("The comparison of CBEI ratio of different BE has been completed.\nPath:")
-    print("\t"+os.path.join(plotPath,fileName+".statBar.tiff"))
+    print("\t"+os.path.join(plotPath,fileName+".statBar.png"))
     begROC(transNum, cbeiPath, plotPath,fileName)
-    print("\t"+os.path.join(plotPath,fileName+".statROC.tiff"))
+    print("\t"+os.path.join(plotPath,fileName+".statROC.png"))
     
 def begROC(transNum, cbeiPath, plotPath,fileName):
     beName={}
@@ -47,7 +47,7 @@ def begROC(transNum, cbeiPath, plotPath,fileName):
             continue
         title=file.strip().split(".")
         beName[title[0]]=[0 for k in range(0,100)]
-        with open(os.path.join("./CBEIRaw/",file)) as f:
+        with open(os.path.join(cbeiPath,file)) as f:
             tgene={}
             for line in f:
                 if (re.match(r'^#.*$',line,re.I)):
@@ -81,7 +81,7 @@ def statROC(beName,plotPath,fileName,transNum):
             nxarr[index][i]=thre[i]
             nyarr[index][i]=beName[key][i]
         index+=1
-    plt.clf()
+    plt.close()
     fig,ax=plt.subplots(figsize=(8,6))
     tlines=['-', '--', ':', '-.']
     for i in range(len(nxarr)):
@@ -91,8 +91,8 @@ def statROC(beName,plotPath,fileName,transNum):
     ax.set_ylabel("CBEI ratio")
     plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
     plt.gca().xaxis.set_major_formatter(FuncFormatter(to_percent))
-    plt.savefig(os.path.join(plotPath,fileName+".statROC.tiff"),dpi=300)
-    plt.clf()
+    plt.savefig(os.path.join(plotPath,fileName+".statROC.png"),dpi=300)
+    plt.close()
     
 
 def statAllRatio(ratio,plotPath,fileName):
@@ -129,8 +129,8 @@ def statAllRatio(ratio,plotPath,fileName):
     ax2[1].get_yaxis().set_major_formatter(FuncFormatter(to_percent))
     ax2[2].get_yaxis().set_major_formatter(FuncFormatter(to_percent))
     plt.tight_layout()
-    plt.savefig(os.path.join(plotPath,fileName+".statBar.tiff"),dpi=300)
-    plt.clf() 
+    plt.savefig(os.path.join(plotPath,fileName+".statBar.png"),dpi=300)
+    plt.close() 
 
 def autolabel(plt,x,y):
     for xx, yy in zip(x,y):
@@ -166,8 +166,8 @@ def editablePie(cfile, transNum,t25,t5,t75,plotPath):
             shadow=False, startangle=90, textprops={'size': 'smaller'})
     axs[2].set(aspect="equal", title='Threshold=0.75')
     plt.suptitle("Editable transcripts ratio of "+be+" of "+fileName)
-    plt.savefig(os.path.join(plotPath,be+"_"+fileName+".statPie.tiff"),dpi=300)
-    plt.clf()
+    plt.savefig(os.path.join(plotPath,be+"_"+fileName+".statPie.png"),dpi=300)
+    plt.close()
     
 def transGCStat(fileName,seqDict,plotPath):
     import re
@@ -208,15 +208,15 @@ def transGCStat(fileName,seqDict,plotPath):
     plt.title("GC%% of %i CDSs \n from %.2f%% to %.2f%%" % (len(seqDict),min(gc_values),max(gc_values)))
     plt.ylabel("GC content (%)")
     plt.xlabel("CDSs")
-    plt.savefig(os.path.join(plotPath,fileName+"_GCstats.tiff"),dpi=300)
-    plt.clf()
+    plt.savefig(os.path.join(plotPath,fileName+"_GCstats.png"),dpi=300)
+    plt.close()
     seqlength=sorted(seqlength)
     plt.plot(seqlength)
     plt.title("CDSs length of %i CDSs \n from %int to %int" % (len(seqDict),min(seqlength),max(seqlength)))
     plt.ylabel("Sequene length (nt)")
     plt.xlabel("CDSs")
-    plt.savefig(os.path.join(plotPath,fileName+"_CDSlength.tiff"),dpi=300)
-    plt.clf()
+    plt.savefig(os.path.join(plotPath,fileName+"_CDSlength.png"),dpi=300)
+    plt.close()
     codonName=[]
     codonFre=[]
     tcolor=[]
@@ -233,8 +233,8 @@ def transGCStat(fileName,seqDict,plotPath):
     ax3.set(title="Codon frequency (%%) \n Frequency of CAG,CGA,CAA,CCA correspond to %.2f%%,%.2f%%,%.2f%%,%.2f%%" % (Codons["CAG"],Codons["CGA"],Codons["CAA"],Codons["CCA"]))
     ax3.set_xticklabels(codonName,rotation=45)
     plt.ylabel("Codon frequency (%)")
-    plt.savefig(os.path.join(plotPath,fileName+"_CodonUsage.tiff"),dpi=300)
-    plt.clf()
+    plt.savefig(os.path.join(plotPath,fileName+"_CodonUsage.png"),dpi=300)
+    plt.close()
 
 
 def getInfo(be,fileName,filePath,statPath):
