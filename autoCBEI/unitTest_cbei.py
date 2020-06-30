@@ -1,5 +1,5 @@
 import unittest, re
-from cbei import cbei
+from autocbei.cbei import cbei
 
 
 class TestCBEI(unittest.TestCase):

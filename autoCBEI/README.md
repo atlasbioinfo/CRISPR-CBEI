@@ -6,20 +6,25 @@ We developed the 'autoCBEI' to automate the calculation of potential CBEI loci o
 
 ## 1. Install
 
-### 1.1 Install by conda
+"autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. The demo CDS data can be downloaded via "https://github.com/atlasbioinfo/CRISPR-CBEI/blob/master/autocbei/Bacillus_subtilis.part500.cds.all.fa".
+
+### 1.1 Install by pip (the easiest way)
 
 Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings. We therefore recommend the installation of antoCBEI by conda.
 
-First install the corresponding platform of [Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).We recommend installing python version 3.7.
+First install the corresponding platform of [Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
 
 Next execute the following command:
+
 ```bash
         # Download CRISPR-CBEI
         1. git clone https://github.com/atlasbioinfo/CRISPR-CBEI.git
+
         # Into autoCBEI directory
         2. cd autoCBEI
-        # Creat env and install environment
-        3. conda env create -f cbei_require.yml
+
+        # [Optiona]Creat env and install environment
+        3[Optiona step]. conda create -n CBEI
         # Activate cbei
         4. source activate cbei
         # Run autoCBEI
