@@ -2,7 +2,7 @@
 
 We provided command-line versions that can be used to design the cytosine base editor mediated gene inactivation for large amounts of CDS. 
 
-We developed the 'autoCBEI' to automate the calculation of potential CBEI loci of the target CDSs and to perform statistics and calculations.
+We developed the 'autocbei' to automate the calculation of potential CBEI loci of the target CDSs and to perform statistics and calculations.
 
 ## 1. Install
 
@@ -43,8 +43,8 @@ If you want to try out the latest but **unreleased version (possibly unstable)**
         # Download CRISPR-CBEI from Github
         1. git clone https://github.com/atlasbioinfo/CRISPR-CBEI.git
         
-        # Into autoCBEI directory
-        2. cd autoCBEI
+        # Install biopython and matplotlib
+        2. conda install -y biopython matplotlib 
 
         # Run autocbei and show help info
         3. python run_autocbei.py -h
