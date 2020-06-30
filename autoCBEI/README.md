@@ -1,4 +1,4 @@
-# autoCBEI.py
+# autocbei
 
 We provided command-line versions that can be used to design the cytosine base editor mediated gene inactivation for large amounts of CDS. 
 
@@ -6,100 +6,98 @@ We developed the 'autoCBEI' to automate the calculation of potential CBEI loci o
 
 ## 1. Install
 
-"autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. The demo CDS data can be downloaded via "https://github.com/atlasbioinfo/CRISPR-CBEI/blob/master/autocbei/Bacillus_subtilis.part500.cds.all.fa".
+"autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. 
+
 
 ### 1.1 Install by pip (the easiest way)
 
-Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings. We therefore recommend the installation of antoCBEI by conda.
-
-First install the corresponding platform of [Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
-
-Next execute the following command:
+If **Python3 (Python >= 3.6.0)** is already included in your operating system, autocbei can be automatically installed via pip.
 
 ```bash
-        # Download CRISPR-CBEI
-        1. git clone https://github.com/atlasbioinfo/CRISPR-CBEI.git
+pip install autocbei
+```
+Use the following command to determine which version of Python you have installed:
+```
+python -V
+```
 
+### 1.2 Install python3 and "antocbei" by conda
+
+Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings.
+
+First install the corresponding platform of [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
+
+Then execute the following command:
+```bash
+        # Creating a virtual environment of python3.7
+        1. conda create -n autocbei python=3.7 -y
+        
+        # Activate the environment
+        2. conda activate autocbei
+        
+        # Install autocbei
+        3. pip install autocbei
+```
+If you want to try out the latest but **unreleased version (possibly unstable)** of autocbei, please follow these commands:
+```bash
+        # Download CRISPR-CBEI from Github
+        1. git clone https://github.com/atlasbioinfo/CRISPR-CBEI.git
+        
         # Into autoCBEI directory
         2. cd autoCBEI
 
-        # [Optiona]Creat env and install environment
-        3[Optiona step]. conda create -n CBEI
-        # Activate cbei
-        4. source activate cbei
-        # Run autoCBEI
-        5. python autoCBEI.py [options] transcript.fa
-        E.g.: python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
-
-        # For more information
-        python autoCBEI.py -h
-```
-
-### 1.2 Install by pip
-
-AutoCBEI.py is based on Python scripts, and the following are the required dependencies.
-
-```
-	Python 3.X
-	biopython
-	matlibplot
-	numpy
-```
-Once python3 is installed, you can install the required dependencies through PIP. In general, ‘matlibplot’ and ‘numpy’ are preloaded and do not need to be installed.
-
-```
-	pip install biopython matlibplot numpy
+        # Run autocbei and show help info
+        3. python run_autocbei.py -h
 ```
 
 ## 2 Usage
 
-First copy the following files locally:
-```bash
-	cbei/
-		__init__.py
-		cbei.py
-		stat.py
-	autoCBEI.py
-	#And CDSs file in fasta format for the required computation
-	#Example (Download from Ensembl): 
-	Bacillus_subtilis.ASM69118v1.cds.all.fa
+### 2.1 Demo CDS file
+
+If the installation of "autocbei" has been successful, the sample file is located at [PYTHON_HOME]/site-packages/autocbei/Bacillus_subtilis.part500.cds.all.fa
+
+If installed with Conda, it should be located at:
+```
+~/anaconda3/envs/autocbei/lib/python3.7/site-packages/autocbei/Bacillus_subtilis.part500.cds.all.fa
 ```
 
-### 2.1 Simply run
+Or, it can be downloaded via "https://github.com/atlasbioinfo/CRISPR-CBEI/blob/master/autocbei/Bacillus_subtilis.part500.cds.all.fa".
 
-```bash
-python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
+### 2.2 Run
+The -h parameter shows help information.
+```
+autocbei -h
+
+        usage: autocbei [-h] [-ns] [-o OUTPREFIX] CDS.fasta
+
+        Enter fasta file of CDSs, output base editor's potential editing site and
+        statistics information. The demo CDS Fasta file: "[PATHON_HOME]/site-
+        packages/autocbei/Bacillus_subtilis.part500.cds.all.fa".
+
+        positional arguments:
+        CDS.fasta             CDSs in fasta format.
+
+        optional arguments:
+        -h, --help            show this help message and exit
+        -ns, --nostat         Only run CBEI design without statistics and plot.
+        -o OUTPREFIX, --outprefix OUTPREFIX
+                                Directory prefixes can be customized. Default: "CBEI"
+                                (CBEIRaw, CBEIPlot, CBEIRes).
+```
+Calculate the potential CRISPR base editing site information of CDSs
+```
+autocbei Bacillus_subtilis.part500.cds.all.fa
+```
+Calculation only without statistics and ploting:
+```
+autocbei -ns Bacillus_subtilis.part500.cds.all.fa -o Bac
 ```
 
-### 2.2 Parameters
 
-```bash
-python autoCBEI.py -h
-```
+## 3. Base editors
 
-```
-usage: autoCBEI.py [-h] [-ns] [-nc] [-o OUTPREFIX] trans
+The autoCBEI contains 13 commonly used base editors.
 
-Enter fasta file of transcripts, output base editor's potential editing site
-and statistics information.
-
-positional arguments:
-  trans                 Transcripts in fasta format. 
-                        E.g.: ./Bacillus_subtilis.part500.cds.all.fa
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -ns, --nostat         Only run CBEI design without statistics and plot.
-  -nc, --nocalculate    Only run CBEI statistics without CBEI design.
-  -o OUTPREFIX, --outprefix OUTPREFIX
-                        Directory prefixes can be customized. Default: "CBEI"
-                        (CBEIRaw, CBEIPlot, CBEIRes).
-```
-
-
-## 3. Settings
-
-You can customize the Base editor in the autoCBEI.py file:
 ```python
 #Set the Base editor parameter
 # [PAM, spacer length, edit beg, edit end, direction]
@@ -142,7 +140,7 @@ beinfos = {
 
 The output message of simply run 
 ```bash
-python autoCBEI.py Bacillus_subtilis.part500.cds.all.fa
+autocbei Bacillus_subtilis.part500.cds.all.fa
 ```
 should be:
 ```
