@@ -6,10 +6,27 @@ We developed the 'autocbei' to automate the calculation of potential CBEI loci o
 
 ## 1. Install
 
-"autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. 
+"autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. The current version (1.6.3) supports ‘conda’ and ‘pip’ installations.
 
+### 1.1 Install by conda (Recommended)
 
-### 1.1 Install by pip (the easiest way)
+Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings.
+
+First install the corresponding platform of [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
+
+Then execute the following command:
+```bash
+        # Creating a virtual environment of python3.7.
+        1. conda create -n runCBEI python=3.7 -y
+        
+        # Activate the environment
+        2. conda activate runCBEI
+        
+        # Install autocbei
+        3. conda install -c atlasbioinfo autocbei -y
+```
+
+### 1.2 Install by pip
 
 If **Python3 (Python >= 3.6.0)** is already included in your operating system, autocbei can be automatically installed via pip.
 
@@ -20,24 +37,10 @@ Use the following command to determine which version of Python you have installe
 ```
 python -V
 ```
+If you haven't installed python3 yet, it's recommended to use the 'method 1.1' above.
 
-### 1.2 Install python3 and "antocbei" by conda
+### 1.3 Install the pre-release version (recommend experienced users)
 
-Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings.
-
-First install the corresponding platform of [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
-
-Then execute the following command:
-```bash
-        # Creating a virtual environment of python3.7
-        1. conda create -n autocbei python=3.7 -y
-        
-        # Activate the environment
-        2. conda activate autocbei
-        
-        # Install autocbei
-        3. pip install autocbei
-```
 If you want to try out the latest but **unreleased version (possibly unstable)** of autocbei, please follow these commands:
 ```bash
         # Download CRISPR-CBEI from Github
@@ -92,7 +95,6 @@ Calculation only without statistics and ploting:
 ```
 autocbei -ns Bacillus_subtilis.part500.cds.all.fa -o Bac
 ```
-
 
 ## 3. Base editors
 
