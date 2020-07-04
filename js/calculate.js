@@ -105,7 +105,6 @@ function calSpacer() {
     let endRegm = new RegExp(/cca/, 'i');
     let plusStrand = calPlusStrand(orfSeq, infoDraw, pamPos, endReg, "Plus");
     let minusStrand = calPlusStrand(orfSeqM, infoDraw, pamPosR, endRegm, "Minus");
-    debugger;
     drawTwoPie(pamPos.length, plusStrand.length, pamPosR.length, minusStrand.length);
     staticPAMandDraw(plusStrand, minusStrand);
     let result = plusStrand.concat(minusStrand);
