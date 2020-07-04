@@ -629,11 +629,15 @@
                                     </tr>
                                     <tr>
                                         <td>2019-09-01</td>
-                                        <td>The Python version of CrisprCBEI released.</td>
+                                        <td>The Python version of CrisprCBEI released (autocbei).</td>
                                     </tr>
                                     <tr>
                                         <td>2019-10-27</td>
                                         <td>Increased support for introns.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020-06-30</td>
+                                        <td>"autocbei" supported "pip" and "conda" installations.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -663,90 +667,91 @@
                     <div id='helpnavdiv' class="affix">
                         <p style="font-weight: bold;font-size:120%;color:#5c7a29">Navigation</p>
                         <ul id='helpnavul' class="nav list-group fixed" role="tablist">
-                            <li class="list-group-item active"><a href="#spy-offpre">1.Off-target prediction</a></li>
-                            <li class="list-group-item"><a href="#spy-time">2.Time consumed</a></li>
-                            <li class="list-group-item"><a href="#spy-abb">3.Abbreviations used</a></li>
-                            <li class="list-group-item"><a href="#spy-upload">4.Upload format</a></li>
+                            <li class="list-group-item"><a href="#spy-manual">1.User manual</a></li>
+                            <li class="list-group-item"><a href="#spy-intron">2.How to set introns</a></li>                           
+                            <li class="list-group-item active"><a href="#spy-offpre">3.Off-target prediction</a></li>
+                            <li class="list-group-item"><a href="#spy-time">4.Time consumed</a></li>
+                            <li class="list-group-item"><a href="#spy-abb">5.Abbreviations used</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xs-10">
-                    <div class="ResultDisDiv"><span class="panelTitle" id="spy-offpre">1.Off-target prediction</span>
-                        <p class="helpText">Crispr-CBEI supports flexible local off-target prediction,that is,you can
-                            select any desired local Fasta file to compare to the spacer sequence chosen!If you used our
-                            supplied Demo sequence,the LacZ gene,you could download this test genome sequence,<strong><a
-                                    download="Test.fa" href="data/Test.fa">
+                        <div class="ResultDisDiv" style="text-align: center;font-size: 120%;"><span class="panelTitle" id="spy-manual">1.User manual</span>
+                            <a download="CBEIUserManual.pdf" href="./CBEIUserManual.pdf">
+                                    <img  style="height: 150px;" src="https://taolab.atlasbioinfo.com/cbei%2Fimg%2Fmanual.png"></a>
+                            <p class="helpText">We have prepared a detailed, step-by-step user manual for CBEI design or off-target prediction. </p>
+                            <p class="helpText">Please download and view.</p>
+                        </div>
+                        <div class="ResultDisDiv">
+                            <span class="panelTitle" id="spy-intron">2.How to set introns</span>
+                            <p class="helpText">When ORF detection is performed, you can set whether the input sequence contains introns in "Customize ORF detection". 
+                                At this point, you can enter the coordinates of the CDS. Separate exons with "," and use ".." to separate the begin and end of exons, as in: 1..102, 216..467</p>
+                            <p class="helpText">You can search for related genes in NCBI, GeneBank format will mark the location of CDS, and copy it directly.
+                                How to set up exons is clearly explained in the user manual.</p>
+                        </div>
+                    <div class="ResultDisDiv"><span class="panelTitle" id="spy-offpre">3.Off-target prediction</span>
+                        <p class="helpText">CRISPR-CBEI supports flexible local off-target prediction,that is,you can
+                            select any desired local <strong>Fasta file</strong> to compare to the spacer sequence chosen! If you used our
+                            supplied Demo sequence,the LacZ gene,you could download this test genome sequence, <strong><a
+                                    download="Test.fa" href="https://taolab.atlasbioinfo.com/cbei%2Fdata%2FTest.fa">
                                     <font color="red">Test.fa</font>
-                                </a></strong>,for off-target prediction.</p>
-                        <p class="helpText">Select your<strong>Fasta file</strong>(e.g.,Test.fa),and then
-                            select<strong>"Mismatch"</strong>number(default Mismatch is less than or equal to
-                            3),click<strong>"Start prediction!"</strong>,Crispr-CBEI will quickly complete the
-                            calculation subsequently and display the predicted result.Of course,you can use cDNA,ORF or
-                            CDS sequences in<strong>Fasta</strong>format to make the off-target prediction,which can be
-                            used to pay attention to spacer's off-target affect in the coding area.</p>
+                                </a></strong> ,for off-target prediction.</p>
+                        <p class="helpText">Select your <strong>Fasta file</strong> (e.g.,Test.fa),and then
+                            select <strong>"Mismatch"</strong> number(Default: mismatch is less than or equal to
+                            3),click <strong>"Start
+                                prediction!"</strong> ,CRISPR-CBEI will quickly complete the calculation subsequently and
+                            display the predicted result. Of course,you can use cDNA,ORF or CDS sequences
+                            in <strong>Fasta</strong> format to make the off-target prediction.
+                        </p>
                     </div>
-                    <div class="ResultDisDiv"><span class="panelTitle" id="spy-time">2.The time consumed in the
-                            off-target prediction.</span>
-                        <p class="helpText">Crispr-CBEI off-target prediction function is a front-end prediction tool
+                    <div class="ResultDisDiv">
+                        <span class="panelTitle" id="spy-time">4. The time consumed in the off-target prediction.</span>
+                        <p class="helpText">CRISPR-CBEI off-target prediction function is a front-end prediction tool
                             that supports local Fasta format files for off-target prediction without uploading to the
-                            server.Through algorithm optimization,Crispr-CBEI does not limit the size of Fasta files,and
-                            the spacer alignment speed is fast.The whole off-target calculation process is asynchronous
-                            and does not occupy much memory(about 200MB),so it would not affect other applications of
-                            the computer.</p>
-                        <p class="helpText"><strong>Test environment</strong>:CPU:i7-3770 3.40GHz </p> 
-                        <p class="helpText">The benchmark used 10 spacers, and the table shows the time cost per spacer.</p>
+                            server. Through algorithm optimization, CRISPR-CBEI does not limit
+                            the size of Fasta files, and the spacer alignment speed is fast. The whole off-target
+                            calculation process is asynchronous and does not occupy much memory (about 200MB), so it
+                            would not affect other applications of the computer. Computational efficiency depends on the CPU, and the higher the primary frequency, the higher the efficiency.
+                            Note that, in our tests, we also found that running other computing tasks on the computer at the same time increased the time consumption.
+                        </p>
+                        <p class="helpText">Test environment: i5-3470 3.20GHz</p>
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th rowspan="2"><a class="resultHead">Species</a></th>
                                     <th rowspan="2"><a class="resultHead">File size</a></th>
-                                    <th ><a class="resultHead">Mismatch<=3</a> </th> 
-                                    <th ><a class="resultHead">Mismatch<=2</a> </th> 
-                                    <th ><a class="resultHead">Mismatch<=1</a> </th> 
-                                    <th ><a class="resultHead">Mismatch==0</a></th>
+                                    <th ><a class="resultHead">Mismatch<=3</a> </th> <th ><a
+                                                    class="resultHead">Mismatch<=2</a> </th> <th ><a
+                                                            class="resultHead">Mismatch<=1</a> </th> <th ><a
+                                                                    class="resultHead">Mismatch==0</a></th>
                                 </tr>
-                                <!-- <tr>
-                                    <th><a class="resultHead">Time(ms)</a></th>
-                                    <th><a class="resultHead">Per spacer time(s)</a></th>
-                                    <th><a class="resultHead">Time(ms)</a></th>
-                                    <th><a class="resultHead">Per spacer time(s)</a></th>
-                                    <th><a class="resultHead">Time(ms)</a></th>
-                                    <th><a class="resultHead">Per spacer time(s)</a></th>
-                                    <th><a class="resultHead">Time(ms)</a></th>
-                                    <th><a class="resultHead">Per spacer time(s)</a></th>
-                                </tr> -->
+                                
                             </thead>
                             <tbody id="timeTableBody"></tbody>
                         </table>
                     </div>
-                    <div class="ResultDisDiv"><span class="panelTitle" id="spy-abb">3.Abbreviations used</span>
+                    <div class="ResultDisDiv">
+                        <span class="panelTitle" id="spy-abb">5. Abbreviations used</span>
                         <ul data-anchor-id="3an1">
-                            <li><strong>PAM</strong>:Protospacer-adjacent motif.If you have additional PAM mode
-                                requirements,please contact us.</li>
-                            <li><strong>Strand</strong>:The positive(+)or the negative(-)strand in which the PAM is
-                                located.</li>
-                            <li><strong>Edit region</strong>:The potential edit region for CRISPR/Cas9-guided cytosine
-                                deaminase was included in the bracket,their adjacent codons were also showed and
+                                <li><strong>CBEI</strong> : Cytosine Base Editor mediated gene Inactivation.</li>
+                            <li><strong>PAM</strong> : Protospacer-adjacent motif. If you have additional PAM mode
+                                requirements, please contact us.</li>
+                            <li><strong>Strand</strong> : The positive (+) or the negative (-) strand in which the PAM is
+                                located. </li>
+                            <li><strong>Edit window</strong> : The potential edit region for CRISPR/Cas9-guided cytosine
+                                deaminase was included in the bracket, their adjacent codons were also showed and
                                 separated by commas.</li>
-                            <li><strong>Edit codon</strong>:The potential codon of the editable cytosine.</li>
-                            <li><strong>Edit nucleotide position</strong>:The position of the potential edit base.</li>
-                            <li><strong>Edit pattern</strong>:The edit pattern indicated the adjacent nucleotide at 5’of
-                                the editable cytosine.Typically,the in vitro activity of the base editors follows
-                                TC≥CC≥AC&gt;GC.</li>
-                            <li><strong>Edit location in gene</strong>:The relative position of the potential edit base
-                                in CDS.</li>
+                            <li><strong>Edit codon</strong> : The potential codon of the editable cytosine.</li>
+                            <li><strong>Edit nucleotide position</strong> : The position of the potential edit base.</li>
+                            <li><strong>Edit pattern</strong> : The edit pattern indicated the adjacent nucleotide at 5’
+                                of the editable cytosine. Typically, the in vitro activity of the base editors follows
+                                TC ≥ CC ≥ AC &gt; GC.</li>
+                            <li><strong>Edit location in gene</strong> : The relative position of the potential edit base
+                                in CDS.
+                            </li>
                         </ul>
                     </div>
-                    <div class="ResultDisDiv"><span class="panelTitle" id="spy-upload">4.The format of the submitted
-                            CDS.</span>
-                        <ol data-anchor-id="afq6">
-                            <li>Paste plain text of sequence.</li>
-                            <li>Input sequence should in fasta format or sequence only.</li>
-                            <li>The length of the coding sequence must be a multiplier of three.</li>
-                            <li>The current version can only submit one gene or one ORF,so sequences that submit
-                                multiple genes may report an error.</li>
-                        </ol>
-                    </div>
+
                 </div>
             </div>
         </div>
