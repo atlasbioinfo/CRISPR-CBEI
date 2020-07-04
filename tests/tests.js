@@ -1,4 +1,9 @@
 let unittestdemoSeq='ATGACCATGATTACGGATTCACTGGCCGTCGTTTTACAACGTCGTGACTGGGAAAACCCTGGCGTTACCCAACTTAATCGCCTTGCAGCACATCCCCCTTTCGCCAGCTGGCGTAATAGCGAAGAGGCCCGCACCGATCGCCCTTCCCAACAGTTGCGCAGCCTGAATGGCGAATGGCGCTTTGCCTGGTTTCCGGCACCAGAAGCGGTGCCGGAAAGCTGGCTGGAGTGCGATCTTCCTGAGGCCGATACTGTCGTCGTCCCCTCAAACTGGCAGATGCACGGTTACGATGCGCCCATCTACACCAACGTGACCTATCCCATTACGGTCAATCCGCCGTTTGTTCCCACGGAGAATCCGACGGGTTGTTACTCGCTCACATTTAATGTTGATGAAAGCTGGCTACAGGAAGGCCAGACGCGAATTATTTTTGATGGCGTTAACTCGGCGTTTCATCTGTGGTGCAACGGGCGCTGGGTCGGTTACGGCCAGGACAGTCGTTTGCCGTCTGAATTTGACCTGAGCGCATTTTTACGCGCCGGAGAAAACCGCCTCGCGGTGATGGTGCTGCGCTGGAGTGACGGCAGTTATCTGGAAGATCAGGATATGTGGCGGATGAGCGGCATTTTCCGTGACGTCTCGTTGCTGCATAAACCGACTACACAAATCAGCGATTTCCATGTTGCCACTCGCTTTAATGATGATTTCAGCCGCGCTGTACTGGAGGCTGAAGTTCAGATGTGCGGCGAGTTGCGTGACTACCTACGGGTAACAGTTTCTTTATGGCAGGGTGAAACGCAGGTCGCCAGCGGCACCGCGCCTTTCGGCGGTGAAATTATCGATGAGCGTGGTGGTTATGCCGATCGCGTCACACTACGTCTGAACGTCGAAAACCCGAAACTGTGGAGCGCCGAAATCCCGAATCTCTATCGTGCGGTGGTTGAACTGCACACCGCCGACGGCACGCTGATTGAAGCAGAAGCCTGCGATGTCGGTTTCCGCGAGGTGCGGATTGAAAATGGTCTGCTGCTGCTGAACGGCAAGCCGTTGCTGATTCGAGGCGTTAACCGTCACGAGCATCATCCTCTGCATGGTCAGGTCATGGATGAGCAGACGATGGTGCAGGATATCCTGCTGATGAAGCAGAACAACTTTAACGCCGTGCGCTGTTCGCATTATCCGAACCATCCGCTGTGGTACACGCTGTGCGACCGCTACGGCCTGTATGTGGTGGATGAAGCCAATATTGAAACCCACGGCATGGTGCCAATGAATCGTCTGACCGATGATCCGCGCTGGCTACCGGCGATGAGCGAACGCGTAACGCGAATGGTGCAGCGCGATCGTAATCACCCGAGTGTGATCATCTGGTCGCTGGGGAATGAATCAGGCCACGGCGCTAATCACGACGCGCTGTATCGCTGGATCAAATCTGTCGATCCTTCCCGCCCGGTGCAGTATGAAGGCGGCGGAGCCGACACCACGGCCACCGATATTATTTGCCCGATGTACGCGCGCGTGGATGAAGACCAGCCCTTCCCGGCTGTGCCGAAATGGTCCATCAAAAAATGGCTTTCGCTACCTGGAGAGACGCGCCCGCTGATCCTTTGCGAATACGCCCACGCGATGGGTAACAGTCTTGGCGGTTTCGCTAAATACTGGCAGGCGTTTCGTCAGTATCCCCGTTTACAGGGCGGCTTCGTCTGGGACTGGGTGGATCAGTCGCTGATTAAATATGATGAAAACGGCAACCCGTGGTCGGCTTACGGCGGTGATTTTGGCGATACGCCGAACGATCGCCAGTTCTGTATGAACGGTCTGGTCTTTGCCGACCGCACGCCGCATCCAGCGCTGACGGAAGCAAAACACCAGCAGCAGTTTTTCCAGTTCCGTTTATCCGGGCAAACCATCGAAGTGACCAGCGAATACCTGTTCCGTCATAGCGATAACGAGCTCCTGCACTGGATGGTGGCGCTGGATGGTAAGCCGCTGGCAAGCGGTGAAGTGCCTCTGGATGTCGCTCCACAAGGTAAACAGTTGATTGAACTGCCTGAACTACCGCAGCCGGAGAGCGCCGGGCAACTCTGGCTCACAGTACGCGTAGTGCAACCGAACGCGACCGCATGGTCAGAAGCCGGGCACATCAGCGCCTGGCAGCAGTGGCGTCTGGCGGAAAACCTCAGTGTGACGCTCCCCGCCGCGTCCCACGCCATCCCGCATCTGACCACCAGCGAAATGGATTTTTGCATCGAGCTGGGTAATAAGCGTTGGCAATTTAACCGCCAGTCAGGCTTTCTTTCACAGATGTGGATTGGCGATAAAAAACAACTGCTGACGCCGCTGCGCGATCAGTTCACCCGTGCACCGCTGGATAACGACATTGGCGTAAGTGAAGCGACCCGCATTGACCCTAACGCCTGGGTCGAACGCTGGAAGGCGGCGGGCCATTACCAGGCCGAAGCAGCGTTGTTGCAGTGCACGGCAGATACACTTGCTGATGCGGTGCTGATTACGACCGCTCACGCGTGGCAGCATCAGGGGAAAACCTTATTTATCAGCCGGAAAACCTACCGGATTGATGGTAGTGGTCAAATGGCGATTACCGTTGATGTTGAAGTGGCGAGCGATACACCGCATCCGGCGCGGATTGGCCTGAACTGCCAGCTGGCGCAGGTAGCAGAGCGGGTAAACTGGCTCGGATTAGGGCCGCAAGAAAACTATCCCGACCGCCTTACTGCCGCCTGTTTTGACCGCTGGGATCTGCCATTGTCAGACATGTATACCCCGTACGTCTTCCCGAGCGAAAACGGTCTGCGCTGCGGGACGCGCGAATTGAATTATGGCCCACACCAGTGGCGCGGCGACTTCCAGTTCAACATCAGCCGCTACAGTCAACAGCAACTGATGGAAACCAGCCATCGCCATCTGCTGCACGCGGAAGAAGGCACATGGCTGAATATCGACGGTTTCCATATGGGGATTGGTGGCGACGACTCCTGGAGCCCGTCAGTATCGGCGGAATTCCAGCTGAGCGCCGGTCGCTACCATTACCAGTTGGTCTGGTGTCAAAAATAA';
+let testFasta='>chrI\nagcttttcattctgactgcaacgggcaatatgtctctgtgtggattaaaaaaagagtgtctgatagcagcttctgaactgTTACGCCAGgaGcCGAAAGGcgggttacctgccgtgagtaaattaaaattttattgacttaggtcactaaatactttaaccaatataggcatagcgcacagacCCACCTTTCGgCtcCTGGCGTAA\nagataaaaattacagagtacacaacatccatgaaacgcattagcaccaccattaccaccaccatcaccattaccacaggt\nTATTACGCCAGCTGGCGAAAaGGggtgcgggctgacgcgtacaggaaacacagaaaaaagcccgcacctgacagtgcgggctttttttttcgaccaaagg\ntaacgaggtaacaaccatgcgagtgttgaagttcggcggtacatcagtggcaaatgcagaacgttttctgcgtgttgccg\natattctggaaagcaatgccaggcaggggcaggtggccaccgtcctctctgcccccgccaaaatcaccaaccacctggtg\ngcgatgattgaaaaaaccattagcggccaggatgctttacccaatatcagcgatgccgaacgtatttttgccgaactttt\ngacgggactcgccgccgcccagccggggttcccgctggcgcaattgaaaactttcgtcgatcaggaatttgcccaaataa\naacatgtcctgcatggcattagtttgttggggcagtgcccggatagcatcaacgctgcgctgatttgccgtggcgagaaa\natgtcgatcgccattatggccggcgtattagaagcgcgcggtcacaacgttactgttatcgatccggtcgaaaaactgct\nggcagtggggcattacctcgaatctaccgtcgatattgctgagtccacccgccgtattgcggcaagccgcattccggctg\natcacatggtgctgatggcaggtttcaccgccggtaatgaaaaaggcgaactggtggtgcttggacgcaacggttccgacCAACtGTTGCGgAGCCTGAAtgg\ntactctgctgcggtgctggctgcctgtttacgcgccgattgttgcgagatttggacggacgttgacggggtctatacctg\ncgacccgcgtcaggtgcccgatgcgaggttgttgaagtcgatgtcctaccaggaagcgatggagctttcctacttcggcg\nctaaagttcttcacccccgcaccattacccccatcgcccagttccagatcccttgcctgattaaaaataccggaaatcct\ncaagcaccaggtacgctcattggtgccagccgtgatgaagacgaattaccggtcaagggcatttccaatctgaataacat\nggcaatgttcagcgtttctggtccggggatgaaagggatggtcggcatggcggcgcgcgtctttgcagcgatgtcacgcg\ncccgtatttccgtggtgctgattacgcaatcatcttccgaatacagcatcagtttctgcgttccacaaagcgactgtgtg\ncgagctgaacgggcaatgcaggaagagttctacctggaactgaaagaaggcttactggagccgctggcagtgacggaacg\ngctggccattatctcggtggtaggtgatggtatgcgcaccttgcgtgggatctcggcgaaattctttgccgcactggccc\ngcgccaatatcaacattgtcgccattgctcagggatcttctgaacgctcaatctctgtcgtggtaaataacgatgatgcg\naccactggcgtgcgcgttactcatcagatgctgttcaataccgatcaggttatcgaagtgtttgtgattggcgtcggtggGGATGAaCAGACGATGGTGCagg\ncgttggcggtgcgctgctggagcaactgaagcgtcagcaaagctggctgaagaataaacatatcgacttacgtgtctgcg\ngtgttgccaactcgaaggctctgctcaccaatgtacatggccttaatctggaaaactggcaggaagaactggcgcaagcc\naaagagccgtttaatctcgggcgcttaattcgcctcgtgaaagaatatcatctgctgaacccggtcattgttgactgcac\nttccagccaggcagtggcggatcaatatgccgacttcctgcgcgaaggtttccacgttgtcacgccgaacaaaaaggcca\nacacctcgtcgatggattactaccatcagttgcgttatgcggcggaaaaatcgcggcgtaaattcctctatgacaccaac\ngttggggctggattaccggttattgagaacctgcaaaatctgctcaatgcaggtgatgaattgatgaagttctccggcat\n>chrII\ntctttctggttcgctttcttatatcttcggcaagttagacgaaggcatgagtttctccgaggcgaccacgctggcgcggg\naaatgggttataccgaaccggacccgcgagatgatctttctggtatggatgtggcgcgtaaactattgattctcgctcgt\ngaaacgggacgtgaactggagctggcggatattgaaattgaacctgtgctgcccgcagagtttaacgccgagggtgatgt\ntgccgcttttatggcgaatctgtcacaactcgacgatctctttgccgcgcgcgtggcgaaggcccgtgatgaaggaaaag\nttttgcgctatgttggcaatattgatgaagatggcgtctgccgcgtgaagattgccgaagtggatggtaatgatccgctg\nttcaaagtgaaaaatggcgaaaacgccctggccttctatagccactattatcagccgctgccgttggtactgcgcggataGTGTACCAgAGCGGATGGTTggg\ntggtgcgggcaatgacgttacagctgccggtgtctttgctgatctgctacgtaccctctcatggaagttaggagtctgac\natggttaaagtttatgccccggcttccagtgccaatatgagcgtcgggtttgatgtgctcggggcggcggtgacacctgt\ntgatggtgcattgctcggagatgtagtcacggttgaggcggcagagacattcagtctcaacaacctcggacgctttgccg\nataagctgccgtcagaaccacgggaaaatatcgtttatcagtgctgggagcgtttttgccaggaactgggtaagcaaatt\nTATTACGCCAGCTGGCGAAAcGGgtggcgatgaccctggaaaagaatatgccgatcggttcgggcttaggctccagtgcctgttcggtggtcgcggcgct\ngatggcgatgaatgaacactgcggcaagccgcttaatgacactcgtttgctggctttgatgggcgagctggaaggccgta\ntctccggcagcattcattacgacaacgtggcaccgtgttttctcggtggtatgcagttgatgatcgaagaaaacgacatc\natcagccagcaagtgccagggtttgatgagtggctgtgggtgctggcgtatccggggattaaagtctcgacggcagaagc\ncagggctattttaccggcgcagtatcgccgccaggattgcattgcgcacgggcgacatctggcaggcttcattcacgcct\ngctattcccgtcagcctgagcttgccgcgaagctgatgaaagatgttatcgctgaaccctaccgtgaacggttactgcca\nggcttccggcaggcgcggcaggcggtcgcggaaatcggcgcggtagcgagcggtatctccggctccggcccgaccttgttCGGTAGCCAGCGCGGATCATcgg\nTATTACGCCAGCTGGCGAAAcgctctgtgtgacaagccggaaaccgcccagcgcgttgccgactggttgggtaagaactacctgcaaaatcaggaaggtt\nttgttcatatttgccggctggatacggcgggcgcacgagtactggaaaactaaatgaaactctacaatctgaaagatcac\naacgagcaggtcagctttgcgcaagccgtaacccaggggttgggcaaaaatcaggggctgttttttccgcacgacctgcc\nggaattcagcctgactgaaattgatgagatgctgaagctggattttgtcacccgcagtgcgaagatcctctcggcgttta\nttggtgatgaaatcccacaggaaatcctggaagagcgcgtgcgcgcggcgtttgccttcccggctccggtcgccaatgtt\ngaaagcgatgtcggttgtctggaattgttccacgggccaacgctggcatttaaagatttcggcggtcgctttatggcaca\naatgctgacccatattgcgggtgataagccagtgaccattctgaccgcgacctccggtgataccggagcggcagtggctc\natgctttctacggtttaccgaatgtgaaagtggttatcctctatccacgaggcaaaatcagtccactgcaagaaaaactg\nttctgtacattgggcggcaatatcgaaactgttgccatcgacggcgatttcgatgcctgtcaggcgctggtgaagcaggc\ngtttgatgatgaagaactgaaagtggcgctagggttaaactcggctaactcgattaacatcagccgtttgctggcgcagaCCGGcGCAGTATGAAGGCGGagg\ntttgctactactttgaagctgttgcgcagctgccgcaggagacgcgcaaccagctggttgtctcggtgccaagcggaaac\nttcggcgatttgacggcgggtctgctggcgaagtcactcggtctgccggtgaaacgttttattgctgcgaccaacgtgaa\ncgataccgtgccacgtttcctgcacgacggtcagtggtcacccaaagcgactcaggcgacgttatccaacgcgatggacg\n>chrIII\natgccggagaacttcatcaattcatcacctgcattgagcagattttgcaggttctcaataaccggtaatccagccccaac\ngttggtgtcatagaggaatttacgccgcgatttttccgccgcataacgcaactgatggtagtaatccatcgacgaggtgt\ntggcctttttgttcggcgtgacaacgtggaaaccttcgcgcaggaagtcggcatattgatccgccactgcctggctggaa\ngtgcagtcaacaatgaccgggttcagcagatgatattctttcacgaggcgaattaagcgcccgagattaaacggctctttccgCCTTTCGgCtCCTGGCGtAA\nggcttgcgccagttcttcctgccagttttccagattaaggccatgtacattggtgagcagagccttcgagttggcaacac\ncgcagacacgtaagtcgatatgtttattcttcagccagctttgctgacgcttcagttgctccagcagcgcaccgccaacg\nccaccgacgccaatcacaaacacttcgataacctgatcggtattgaacagcatctgatgagtaacgcgcacgccagtggt\ncgcatcatcgttatttaccacgacagagattgagcgttcagaagatccctgagcaatggcgacaatgttgatattggcgc\ngggccagtgcggcaaagaatttcgccgagatcccacgcaaggtgcgcataccatcacctaccaccgagataatggccagc\ncgttccgtcactgccagcggctccagtaagccttctttcagttccaggtagaactcttcctgcattgcccgttcagctcg\ncacacagtcgctttgtggaacgcagaaactgatgctgtattcggaagatgattgcgtaatcagcaccacggaaatacggg\ncgcgtgacatcgctgcaaagacgcgcgccgccatgccgaccatccctttcatccccggaccagaaacgctgaacattgcc\natgttattcagattggaaatgcccttgaccggtaattcgtcttcatcacggctggcaccaatgagcgtacctggtgcttg\naggatttccggtatttttaatcaggcaagggatctggaactgggcgatgggggtaatggtgcgggggtgaagaactttag\ncgccgaagtaggaaagctccatcgcttcctggtaggacatcgacttcaacaacctcgcatcgggcacctgacgcgggtcg\ncaggtatagaccccgtcaacgtccgtccaaatctcgcaacaatcggcgcgtaaacaggcagccagcaccgcagcagagta\ngtcggaaccgttgcgtccaagcaccaccagttcgcctttttcattaccggcggtgaaacctgccatcagcaccatgtgat\ncagccggaatgcggcttgccgcaatacggcgggtggactcagcaatatcgacggtagattcgaggtaatgccccactgcc\nagcagtttttcgaccggatcgataacagtaacgttgtgaccgcgcgcttctaatacgccggccataatggcgatcgacat\ntttctcgccacggcaaatcagcgcagcgttgatgctatccgggcactgccccaacaaactaatgccatgcaggacatgtt\nttatttgggcaaattcctgatcgacgaaagttttcaattgcgccagcgggaaccccggctgggcggcggcgagtcccgtc\naaaagttcggcaaaaatacgttcggcatcgctgatattgggtaaagcatcctggccgctaatggttttttcaatcatcgc\ncaccaggtggttggtgattttggcgggggcagagaggacggtggccacctgcccctgcctggcattgctttccagaatat\ncggcaacacgcagaaaacgttctgcatttgccactgatgtaccgccgaacttcaacactcgcatggttgttacctcgtta\ncctttggtcgaaaaaaaaagcccgcactgtcaggtgcgggcttttttctgtgtttcctgtacgcgtcagcccgcaccgtt\nacctgtggtaatggtgatggtggtggtaatggtggtgctaatgcgtttcatggatgttgtgtactctgtaatttttatct\ngtctgtgcgctatgcctatattggttaaagtatttagtgacctaagtcaataaaattttaatttactcacggcaggtaac\ncagttcagaagctgctatcagacactctttttttaatccacacagagacatattgcccgttgcagtcagaatgaaaagct\n>chrIV\ncgtccatcgcgttggataacgtcgcctgagtcgctttgggtgaccactgaccgtcgtgcaggaaacgtggcacggtatcg\nttcacgttggtcgcagcaataaaacgtttcaccggcagaccgagtgacttcgccagcagacccgccgtcaaatcgccgaa\ngtttccgcttggcaccgagacaaccagctggttgcgcgtctcctgcggcagctgcgcaacagcttcaaagtagtagcaaa\ntctgcgccagcaaacggctgatgttaatcgagttagccgagtttaaccctagcgccactttcagttcttcatcatcaaac\ngcctgcttcaccagcgcctgacaggcatcgaaatcgccgtcgatggcaacagtttcgatattgccgcccaatgtacagaa\ncagtttttcttgcagtggactgattttgcctcgtggatagaggataaccactttcacattcggtaaaccgtagaaagcat\ngagccactgccgctccggtatcaccggaggtcgcggtcagaatggtcactggcttatcacccgcaatatgggtcagcatt\ntgtgccataaagcgaccgccgaaatctttaaatgccagcgttggcccgtggaacaattccagacaaccgacatcgctttc\naacattggcgaccggagccgggaaggcaaacgccgcgcgcacgcgctcttccaggatttcctgtgggatttcatcaccaa\ntaaacgccgagaggatcttcgcactgcgggtgacaaaatccagcttcagcatctcatcaatttcagtcaggctgaattcccccAACCATCCGCTcTGGTACAC\nggcaggtcgtgcggaaaaaacagcccctgatttttgcccaacccctgggttacggcttgcgcaaagctgacctgctcgtt\ngtgatctttcagattgtagagtttcatttagttttccagtactcgtgcgcccgccgtatccagccggcaaatatgaacaa\naaccttcctgattttgcaggtagttcttacccaaccagtcggcaacgcgctgggcggtttccggcttgtcacacagagcg\naacaaggtcgggccggagccggagataccgctcgctaccgcgccgatttccgcgaccgcctgccgcgcctgccggaagcc\ntggcagtaaccgttcacggtagggttcagcgataacatctttcatcagcttcgcggcaagctcaggctgacgggaatagc\naggcgtgaatgaagcctgccagatgtcgcccgtgcgcaatgcaatcctggcggcgatactgcgccggtaaaatagccctg\ngcttctgccgtcgagactttaatccccggatacgccagcacccacagccactcatcaaaccctggcacttgctggctgat\ngatgtcgttttcttcgatcatcaactgcataccaccgagaaaacacggtgccacgttgtcgtaatgaatgctgccggaga\ntacggccttccagctcgcccatcaaagccagcaaacgagtgtcattaagcggcttgccgcagtgttcattcatcgccatc\nagcgccgcgaccaccgaacaggcactggagcctaagcccgaaccgatcggcatattcttttccagggtcatcgccactgg\naatttgcttacccagttcctggcaaaaacgctcccagcactgataaacgatattttcccgtggttctgacggcagcttat\ncggcaaagcgtccgaggttgttgagactgaatgtctctgccgcctcaaccgtgactacatctccgagcaatgcaccatca\nacaggtgtcaccgccgccccgagcacatcaaacccgacgctcatattggcactggaagccggggcataaactttaaccat\ngtcagactcctaacttccatgagagggtacgtagcagatcagcaaagacaccggcagctgtaacgtcattgcccgcacca\ntatccgcgcagtaccaacggcagcggctgataatagtggctatagaaggccagggcgttttcgccatttttcactttgaa\ncagcggatcattaccatccacttcggcaatcttcacgcggcagacgccatcttcatcaatattgccaacatagcgcaaaa\ncttttccttcatcacgggccttcgccacgcgcgcggcaaagagatcgtcgagttgtgacagattcgccataaaagcggca\nacatcaccctcggcgttaaactctgcgggcagcacaggttcaatttcaatatccgccagctccagttcacgtcccgtttc\nacgagcgagaatcaatagtttacgcgccacatccataccagaaagatcatctcgcgggtccggttcggtataacccattt\nTTACGCCAGCTGGCGAAAGGcGGgcgccagcgtggtcgcctcggagaaactcatgccttcgtctaacttgccgaagatataagaaagcgaaccagaaaga\n';
+let unittestPAM = {
+  tpam : new RegExp('\\wGG', 'i'),
+  tpamr : new RegExp('CC\\w', 'i')
+};
 
 QUnit.module("test-basic-function",function(){
 
@@ -43,7 +48,7 @@ QUnit.module("test-basic-function",function(){
 
 
 
-QUnit.module("test-ORF-finder",function(){
+QUnit.module("test-CBEI-ORF-finder",function(){
 
   QUnit.test( "test-initiaCDS-value", function( assert ) {
     assert.ok($("#PAMValue1").val() == 'NGG');
@@ -109,7 +114,7 @@ QUnit.module("test-ORF-finder",function(){
 });
 
 
-QUnit.module("test-calculate",function(){
+QUnit.module("test-CBEI-design",function(){
 
   QUnit.test( "test-getRegPAM", function( assert ) {
     let t=getRegPAM("NGG");
@@ -413,6 +418,239 @@ QUnit.module("test-calculate",function(){
 });
 
 QUnit.module("test-offtarget-function",function(){
+  QUnit.test( "test-getSpacer", function( assert ) {
+    demoSpacerSeq();
+    let t=getSpacerText("spacerSequence2");
+    assert.deepEqual(t,["TTACGCCAGCTGGCGAAAGG", "TATTACGCCAGCTGGCGAAA", "CAACAGTTGCGCAGCCTGAA", "CAAAGCGCCATTCGCCATTC", "CAGACGCGAATTATTTTTGA", "TTTATGGCAGGGTGAAACGC", "GGATGAGCAGACGATGGTGC", "GTGTACCACAGCGGATGGTT", "GCGACCAGATGATCACACTC", "CCGGTGCAGTATGAAGGCGG"],"demo spacer, passed");
+  });
+
+  QUnit.test( "test-fasta-trimmed", function( assert ) {
+    let t=fastaTrim(testFasta);
+    assert.ok(t.length==4);
+    let fheader=new Array();
+    for (i in t){
+      fheader[i]=t[i].fasHeader;
+    }
+    assert.deepEqual(fheader,["chrI", "chrII", "chrIII", "chrIV"],'fasta-trimmed, pass');
+  }); 
+
+  
+  QUnit.test( "test-align-mis0", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TTACGCCAGCTGGCGAAAGG";
+    let mis=ala0(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0);
+    assert.ok(mis.length==1,"align-mis0 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrIV",
+      index: 0,
+      newPAM: "cGG",
+      pos: 2344,
+      seq: "TTACGCCAGCTGGCGAAAGG",
+      strand: "+"
+    }],'align-mis0 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis2", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TATTACGCCAGCTGGCGAAA";
+    let mis=ala0(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0);
+    assert.ok(mis.length==2,"align-mis0-2 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: 0,
+      newPAM: "aGG",
+      pos: 287,
+      seq: "TATTACGCCAGCTGGCGAAA",
+      strand: "+",
+    },{
+      header: "chrII",
+      index: 0,
+      newPAM: "cGG",
+      pos: 824,
+      seq: "TATTACGCCAGCTGGCGAAA",
+      strand: "+"
+    }
+  ],'align-mis0-2 detailed, passed');
+  }); 
+  
+  QUnit.test( "test-align-mis1", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TTACGCCAGCTGGCGAAAGG";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 1);
+    assert.ok(mis.length==2,"align-mis1 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: "0",
+      mispos: "19,",
+      newPAM: "Ggg",
+      pos: "289",
+      seq: "ttacgccagctggcgaaaAg",
+      strand: "+"
+    },{
+      header: "chrIV",
+      index: "0",
+      mispos: "",
+      newPAM: "cGG",
+      pos: "2344",
+      seq: "ttacgccagctggcgaaagg",
+      strand: "+"
+    }],'align-mis1 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis1-2", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TATTACGCCAGCTGGCGAAA";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 1);
+    assert.ok(mis.length==2,"align-mis2 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: "0",
+      mispos: "",
+      newPAM: "aGG",
+      pos: "287",
+      seq: "tattacgccagctggcgaaa",
+      strand: "+"
+    },{
+      header: "chrII",
+      index: "0",
+      mispos: "",
+      newPAM: "cGG",
+      pos: "824",
+      seq: "tattacgccagctggcgaaa",
+      strand: "+"
+    }
+    ],'align-mis1-2 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis2", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TTACGCCAGCTGGCGAAAGG";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 2);
+    assert.ok(mis.length==2,"align-mis2 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: "0",
+      mispos: "19,",
+      newPAM: "Ggg",
+      pos: "289",
+      seq: "ttacgccagctggcgaaaAg",
+      strand: "+"
+    },{
+      header: "chrIV",
+      index: "0",
+      mispos: "",
+      newPAM: "cGG",
+      pos: "2344",
+      seq: "ttacgccagctggcgaaagg",
+      strand: "+"
+    }],'align-mis2 detailed, passed');
+  });
 
 
+  QUnit.test( "test-align-mis3", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="TTACGCCAGCTGGCGAAAGG";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 3);
+    assert.ok(mis.length==5,"align-mis3 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: "0",
+      mispos: "10,11,13,",
+      newPAM: "cgg",
+      pos: "81",
+      seq: "ttacgccagGAgCcgaaagg",
+      strand: "+"
+    },{
+      header: "chrI",
+      index: "0",
+      mispos: "19,",
+      newPAM: "Ggg",
+      pos: "289",
+      seq: "ttacgccagctggcgaaaAg",
+      strand: "+"
+    },{
+      header: "chrI",
+      index: "0",
+      mispos: "8,10,11,",
+      newPAM: "CCA",
+      pos: "187",
+      seq: "cctttcgGcTCctggcgtaa",
+      strand: "-"
+    },{
+      header: "chrIII",
+      index: "0",
+      mispos: "8,10,11,",
+      newPAM: "ccg",
+      pos: "324",
+      seq: "cctttcgGcTCctggcgtaa",
+      strand: "-"
+    },{
+      header: "chrIV",
+      index: "0",
+      mispos: "",
+      newPAM: "cGG",
+      pos: "2344",
+      seq: "ttacgccagctggcgaaagg",
+      strand: "+"
+    }],'align-mis3 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis3-2", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="GTGTACCACAGCGGATGGTT";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 3);
+    assert.ok(mis.length==2,"align-mis3-2 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrII",
+      index: "0",
+      mispos: "9,",
+      newPAM: "ggg",
+      pos: "481",
+      seq: "gtgtaccaGagcggatggtt",
+      strand: "+"
+    },{
+      header: "chrIV",
+      index: "0",
+      mispos: "12,",
+      newPAM: "ccc",
+      pos: "804",
+      seq: "aaccatccgctCtggtacac",
+      strand: "-"
+    }
+  ],'align-mis3-2 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis3-3", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="CCGGTGCAGTATGAAGGCGG";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 3);
+    assert.ok(mis.length==1,"align-mis3-3 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrII",
+      index: "0",
+      mispos: "5,",
+      newPAM: "agg",
+      pos: "2247",
+      seq: "ccggCgcagtatgaaggcgg",
+      strand: "+"
+    }
+  ],'align-mis3-3 detailed, passed');
+  });
+
+  QUnit.test( "test-align-mis3-4", function( assert ) {
+    let t=fastaTrim(testFasta);
+    let tspacer="CAACAGTTGCGCAGCCTGAA";
+    let mis=alaplus(tspacer, transStrand(tspacer),t,unittestPAM, 3, "+", 0, 3);
+    assert.ok(mis.length==1,"align-mis3-4 length, passed");
+    assert.deepEqual(mis,[{
+      header: "chrI",
+      index: "0",
+      mispos: "5,12,",
+      newPAM: "tgg",
+      pos: "1027",
+      seq: "caacTgttgcgGagcctgaa",
+      strand: "+"
+    }
+  ],'align-mis3-4 detailed, passed');
+  });
 });
