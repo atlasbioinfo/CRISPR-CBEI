@@ -6,3 +6,12 @@ python:
   - "3.6"
 install:
   - pip install autocbei
+script:
+  - python ./autoCBEI/unitTest_cbei.py
+cache:
+  - pip
+branches:
+  only:
+    - master
+notifications:
+  email: false

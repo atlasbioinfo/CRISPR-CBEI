@@ -1,4 +1,5 @@
 # autocbei
+![unittest](https://travis-ci.com/atlasbioinfo/CRISPR-CBEI.svg?branch=master)
 
 We provided command-line versions that can be used to design the cytosine base editor mediated gene inactivation for large amounts of CDS. 
 
