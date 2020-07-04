@@ -280,6 +280,7 @@ function ORFfinderATG(seqData, mLength, augReg,tgaReg,intronArr,selectedFasta) {
     }
     
     drawORFviewer(orfInfo,maxL,selectedFasta);
+    return orfInfo;
 }
 
 function getIntron(seq, intronArr){
@@ -585,4 +586,5 @@ function drawORFviewer(orfInfo, geneLength, fastaName) {
         
         showORFinfo(params.data.value[3],labelStr[params.data.value[0]],params.data.value[1],params.data.value[2],params.data.value[4]);
     });
+    return option;
 }
