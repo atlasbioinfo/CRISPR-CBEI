@@ -35,11 +35,11 @@ You can download the files directly from the directory and open index.html.
 ├── index.html
 ```
 
-## autoCBEI
+## autocbei
 
-In addition to calculating a large number of CDSs, we have introduced a command-line version of the tool: autoCBEI.py ["https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autoCBEI"](https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autoCBEI). The tool can also count and plot the results.
+In addition to calculating a large number of CDSs, we have introduced a command-line version of the tool: autocbei ["https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autocbei"](https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autocbei). 
 
-The detailed introduction of autoCBEI please see:
-https://github.com/atlasbioinfo/CRISPR-CBEI/blob/master/autoCBEI/README.md
+The detailed introduction of autocbei please see:
+https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autocbei
 
 Bug report please submit issues or contat atlasbioin4@gmail.com.
