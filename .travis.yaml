@@ -7,7 +7,7 @@ python:
 install:
   - pip install autocbei
 script:
-  - python ./autoCBEI/unitTest_cbei.py
+  - python ./autocbei/unitTest_cbei.py
 cache:
   - pip
 branches:
