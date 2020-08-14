@@ -1,5 +1,25 @@
 # CRISPR-CBEI
 
+
+---
+
+### 20200814 Report
+
+I have just received a notice: 
+
+From today to **September 1**, the server, "taolab", may appear network fluctuation, this may cause users cannot access to the web site (https://taolab.nwsuaf.edu.cn/crisprcbei/) periodically.
+
+During this period, if you can't access to (https://taolab.nwsuaf.edu.cn/crisprcbei/), please convert to our website on github.io (https://atlasbioinfo.github.io/CRISPR-CBEI/). Both sites have the same functionality.
+
+The problem may not be fixed until **September 1, 2020**.
+
+Of course, the python version, "autocbei," are not affected.
+
+We apologize for the trouble brought to you. Thank you for your understanding and support.
+
+>
+---
+
 CRISPR-CBEI is dedicated to designing potential spacers for cytosine base editor mediated gene inactivation. The editing parameters of cytosine base editors are entirely customizable, including PAM, editing window, and search region. CRISPR-CBEI also integrated with visual ORF identification and interactive statistical charts. Furthermore, this designing tool also provides a pure front-end off-target prediction searching within size-unlimited user-defined genome file.
 
 CrisprCBEI is available in three versions to accommodate three usage scenarios: online and command line. Both versions have the function to design cytosine base editor mediated gene inactivation (CBEI). In addition, the web-based versions (both online and offline) also support ORF detection and off-target prediction on the web page. For the ‘online version,’ users can easily access through the website (["https://taolab.nwsuaf.edu.cn/crisprcbei/"](https://taolab.nwsuaf.edu.cn/crisprcbei/) or ["https://atlasbioinfo.github.io/CRISPR-CBEI/"](https://atlasbioinfo.github.io/CRISPR-CBEI/) ). 
