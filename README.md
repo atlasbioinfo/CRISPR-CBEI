@@ -3,7 +3,7 @@
 
 ---
 
-**Haopeng Yu, Zhaowei Wu, Quanjiang Ji, & Shiheng Tao (2019). CRISPR-CBEI: a web-based designing tool for cytosine base editor-mediated gene inactivation. 2020, mSystems (in-press, https://taolab.nwafu.edu.cn/crisprcbei/ and https://atlasbioinfo.github.io/CRISPR-CBEI/)**
+**Yu, H., Wu, Z., Chen, X., Ji, Q., & Tao, S. (2020). CRISPR-CBEI: a Designing and Analyzing Tool Kit for Cytosine Base Editor-Mediated Gene Inactivation. Msystems, 5(5), e00350-20. https://atlasbioinfo.github.io/CRISPR-CBEI/)**
 
 CRISPR-CBEI is dedicated to designing potential spacers for cytosine base editor mediated gene inactivation. The editing parameters of cytosine base editors are entirely customizable, including PAM, editing window, and search region. CRISPR-CBEI also integrated with visual ORF identification and interactive statistical charts. Furthermore, this designing tool also provides a pure front-end off-target prediction searching within size-unlimited user-defined genome file.
 
