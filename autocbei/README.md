@@ -9,7 +9,20 @@ We developed the 'autocbei' to automate the calculation of potential CBEI loci o
 
 "autocbei" relies on python3 and requires 'biopython' and 'matplotlib' packages. The current version (1.6.3) supports ‘conda’ and ‘pip’ installations.
 
-### 1.1 Install by conda (Recommended)
+### 1.1 Install by pip
+
+If **Python3 (Python >= 3.6.0)** is already included in your operating system, autocbei can be automatically installed via pip.
+
+```bash
+pip install autocbei
+```
+Use the following command to determine which version of Python you have installed:
+```
+python -V
+```
+If you haven't installed python3 yet, it's recommended to use the 'method 1.2'.
+
+### 1.2 Install by conda (Recommended)
 
 Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings.
 
@@ -27,18 +40,6 @@ Then execute the following command:
         3. conda install -c atlasbioinfo autocbei -y
 ```
 
-### 1.2 Install by pip
-
-If **Python3 (Python >= 3.6.0)** is already included in your operating system, autocbei can be automatically installed via pip.
-
-```bash
-pip install autocbei
-```
-Use the following command to determine which version of Python you have installed:
-```
-python -V
-```
-If you haven't installed python3 yet, it's recommended to use the 'method 1.1' above.
 
 ### 1.3 Install the pre-release version (recommend experienced users)
 
