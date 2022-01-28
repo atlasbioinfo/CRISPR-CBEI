@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="autocbei",
-    version="1.3",
+    version="1.7",
     packages=find_packages(exclude=["cbeiUnitTests"]),
     description = '"autoCBEI.py" can calculate the potential CBEI loci of the target CDSs and perform statistics and plots.',
     author = "Haopeng Yu",

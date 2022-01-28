@@ -1,0 +1,3 @@
+[console_scripts]
+autocbei = autocbei:mainCBEI
+

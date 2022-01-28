@@ -15,31 +15,15 @@ If **Python3 (Python >= 3.6.0)** is already included in your operating system, a
 
 ```bash
 pip install autocbei
+
+#or Upgrade
+
+pip install --upgrade autocbei
 ```
 Use the following command to determine which version of Python you have installed:
 ```
 python -V
 ```
-If you haven't installed python3 yet, it's recommended to use the 'method 1.2'.
-
-### 1.2 Install by conda (Recommended)
-
-Conda (including Anaconda and Miniconda) is a popular way to manage software. It can create and configure a virtual environment without affecting global settings.
-
-First install the corresponding platform of [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). We recommend installing python3 version.
-
-Then execute the following command:
-```bash
-        # Creating a virtual environment of python3.7.
-        1. conda create -n runCBEI python=3.7 -y
-        
-        # Activate the environment
-        2. conda activate runCBEI
-        
-        # Install autocbei
-        3. conda install -c atlasbioinfo autocbei -y
-```
-
 
 ### 1.3 Install the pre-release version (recommend experienced users)
 
@@ -84,6 +68,9 @@ autocbei -h
 
         optional arguments:
         -h, --help            show this help message and exit
+        -bef BEF              [Optional] The file containing the base   editor definition, seperate with ",". eg: "BE,NGG,20,4,8,5", that
+                        is, "name, PAM, spacer length, edit beg, edit end, PAM at 5' or 3' of spacer". 13 base editors are included
+                        by default.
         -ns, --nostat         Only run CBEI design without statistics and plot.
         -o OUTPREFIX, --outprefix OUTPREFIX
                                 Directory prefixes can be customized. Default: "CBEI"
@@ -97,6 +84,18 @@ Calculation only without statistics and ploting:
 ```
 autocbei -ns Bacillus_subtilis.part500.cds.all.fa -o Bac
 ```
+Customize base editors
+```
+autocbei -bef exampleBE.csv Bacillus_subtilis.part500.cds.all.fa
+
+cat exampleBE.csv
+#sep with comma ","
+#BE,NGG,20,4,8,5
+#YE1-BE3,NGG,20,5,7,5
+#name, PAM, spacer length, edit beg, edit end, PAM at 5' or 3' of spacer
+
+```
+The base editors example files can be found here: https://github.com/atlasbioinfo/CRISPR-CBEI/blob/master/autocbei/exampleBE.csv
 
 ## 3. Base editors
 

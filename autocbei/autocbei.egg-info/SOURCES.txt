@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+autocbei/Bacillus_subtilis.part500.cds.all.fa
+autocbei/__init__.py
+autocbei.egg-info/PKG-INFO
+autocbei.egg-info/SOURCES.txt
+autocbei.egg-info/dependency_links.txt
+autocbei.egg-info/entry_points.txt
+autocbei.egg-info/requires.txt
+autocbei.egg-info/top_level.txt
+autocbei/cbei/__init__.py
+autocbei/cbei/autoCBEI.py
+autocbei/cbei/cbei.py
+autocbei/cbei/judges.py
+autocbei/cbei/stat.py
