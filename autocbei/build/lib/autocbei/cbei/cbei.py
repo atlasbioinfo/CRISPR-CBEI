@@ -1,6 +1,5 @@
 import sys,re,json,os,shutil
 from Bio import SeqIO
-from Bio.SeqUtils import GC
 
 baseT = {
     "A": "T",
@@ -248,10 +247,10 @@ def calSapcer(seq, regPos, beinfo, endReg, mode):
         preStop.append(pamInfo)
     return preStop
 
-def runBatch(bename, beinfo, seqDict,rawPath):
+def runBatch(bename, beinfo, seqDict,rawPath,prefix):
     if ( not os.path.exists(rawPath)):
         os.mkdir(rawPath)
-    outFileName=bename+"_"+os.path.basename(sys.argv[1])+".cbei";
+    outFileName=bename+"_"+prefix+".cbei";
     endReg = re.compile(r'cag|caa|cga', re.I)
     endRegM = re.compile(r'cca', re.I)
     pamReg = getPAMReg(beinfo[0])
