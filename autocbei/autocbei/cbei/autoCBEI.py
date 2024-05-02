@@ -13,6 +13,7 @@ def mainAutoCBEI():
     #Set the Base editor parameter
     # [PAM, spacer length, edit beg, edit end, direction]
     # Direction refers to spacer at the 5' or 3' end of PAM sequence (5 or 3, respectively). 
+    
     beinfos = {
         "BE":["NGG",20,4,8,5],
         "YE1-BE3":["NGG",20,5,7,5],
@@ -94,11 +95,10 @@ def mainAutoCBEI():
         print()
 
     seqDict = SeqIO.index(args.cds, "fasta")
-    tName=os.path.basename(args.cds).split(".")
-    fileName=tName[0]
+    fileName=pre
     for key in beinfos:
         print("Start calculating: "+key)
-        cbei.runBatch(key, beinfos[key], seqDict,rawPath)
+        cbei.runBatch(key, beinfos[key], seqDict,rawPath,pre)
     print("Calculate complete!")
 
     if (not args.nostat):

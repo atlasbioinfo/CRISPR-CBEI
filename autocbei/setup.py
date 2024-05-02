@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setup(
     name="autocbei",
-    version="1.7",
+    version="1.8",
     packages=find_packages(exclude=["cbeiUnitTests"]),
     description = '"autoCBEI.py" can calculate the potential CBEI loci of the target CDSs and perform statistics and plots.',
     author = "Haopeng Yu",
     author_email = "atlasbioin4@gmail.com",
     url = "https://github.com/atlasbioinfo/CRISPR-CBEI/tree/master/autoCBEI",
-    python_requires='>=3.6.0',
+    python_requires='>=3.7.0',
     license='Apache-2.0',
     entry_points = {
         'console_scripts' : [

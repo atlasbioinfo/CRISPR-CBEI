@@ -8,6 +8,7 @@ def mainCBEI():
         print('autocbei exit...')
         return
     from autocbei.cbei.autoCBEI import mainAutoCBEI
+
     mainAutoCBEI()
 
 

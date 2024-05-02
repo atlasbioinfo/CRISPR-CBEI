@@ -2,8 +2,7 @@ import os,re,random
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 import numpy as np
-from Bio.SeqUtils import GC
-from cycler import cycler
+from Bio.SeqUtils import gc_fraction
 
 def statCBEI(seqDict,cbeiPath,plotPath,statPath,fileName):
     transNum=len(seqDict)
@@ -13,16 +12,18 @@ def statCBEI(seqDict,cbeiPath,plotPath,statPath,fileName):
     if (not os.path.exists(statPath)):
         os.mkdir(statPath)
 
-    files=os.listdir(cbeiPath)
+    # files=os.listdir(cbeiPath)
     allRaio={}
-    for cfile in files:
-        if(re.match(r'.*'+fileName+'.*\.cbei$',cfile,re.I)):
-            tmp=cfile.split(".")
-            be=tmp[0].split("_")[0]
-            filePath=os.path.join(cbeiPath,cfile)
-            cbeiInfo=getInfo(be,fileName,filePath,statPath)
-            allRaio[be]=[len(cbeiInfo["t25"])/transNum,len(cbeiInfo["t5"])/transNum,len(cbeiInfo["t75"])/transNum,]        
-            editablePie(cfile,transNum,cbeiInfo["t25"],cbeiInfo["t5"],cbeiInfo["t75"],plotPath)
+    for cfile in os.listdir(cbeiPath):
+        if (not cfile.endswith(".cbei")):
+            continue
+        # if(re.match(r'.*'+fileName+'.*\.cbei$',cfile,re.I)):
+        tmp=cfile.split(".")
+        be=tmp[0].split("_")[0]
+        filePath=os.path.join(cbeiPath,cfile)
+        cbeiInfo=getInfo(be,fileName,filePath,statPath)
+        allRaio[be]=[len(cbeiInfo["t25"])/transNum,len(cbeiInfo["t5"])/transNum,len(cbeiInfo["t75"])/transNum,]        
+        editablePie(cfile,transNum,cbeiInfo["t25"],cbeiInfo["t5"],cbeiInfo["t75"],plotPath)
     print("#"*20)
     print("Pie charts for different BEs have been generated. \nPath:")
     print("\t"+os.path.join(plotPath,"[BE names]_"+fileName+".statPie.png"))
@@ -41,9 +42,8 @@ def statCBEI(seqDict,cbeiPath,plotPath,statPath,fileName):
     
 def begROC(transNum, cbeiPath, plotPath,fileName):
     beName={}
-    files=os.listdir(cbeiPath)
-    for file in files:
-        if not (re.match(r".*"+fileName+".*\.cbei$",file,re.I)):
+    for file in os.listdir(cbeiPath):
+        if (not file.endswith(".cbei")):
             continue
         title=file.strip().split(".")
         beName[title[0]]=[0 for k in range(0,100)]
@@ -201,7 +201,7 @@ def transGCStat(fileName,seqDict,plotPath):
                 Codons[codon]+=1
                 cCount+=1
         seqlength.append(len(seq))
-        gc_values.append(GC(seq))
+        gc_values.append(gc_fraction(seq))
     gc_values=sorted(gc_values)
     plt.subplots(figsize=(6, 6))
     plt.plot(gc_values)
